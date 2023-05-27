@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --black-gradient: linear-gradient(144.39deg,
+            #ffffff -278.56%,
+            #6d6d6d -78.47%,
+            #11101d 91.61%);
+    --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-new-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3694ff;
+    width: 12px;
+    background-clip: padding-box;
+    border: 2px solid var(--scrollbar-new-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1d194c;
+}
+
+.text-gradient {
+    background: radial-gradient(64.18% 64.18% at 71.16% 35.69%,
+            #dad1ff -43.27%,
+            #beadef -21.24%,
+            #9e8eed 12.19%,
+            #a682ef 29.82%,
+            #8463e8 51.94%,
+            #7051e1 90.29%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.bg-blue-gradient {
+    background: linear-gradient(157.81deg,
+            #def9fa -43.27%,
+            #bef3f5 -21.24%,
+            #9dedf0 12.19%,
+            #7de7eb 29.82%,
+            #5ce1e6 51.94%,
+            #33bbcf 90.29%);
+}
+
+.bg-purple-gradient {
+    background-color: #4d2acc;
+}
+
+.bg-black-gradient {
+    background: linear-gradient(144.39deg,
+            #ffffff -278.56%,
+            #6d6d6d -78.47%,
+            #11101d 91.61%);
+}
+
+.bg-black-gradient-2 {
+    background: linear-gradient(-168.39deg,
+            #ffffff -278.56%,
+            #6d6d6d -78.47%,
+            #11101d 91.61%);
+}
+
+.bg-gray-gradient {
+    background: linear-gradient(153.47deg,
+            rgba(255, 255, 255, 0) -341.94%,
+            #14101d 95.11%);
+}
+
+.bg-blue-gradient:hover {
+    background: linear-gradient(157.81deg,
+            #ccf8f9 -43.27%,
+            #b0f1f3 -21.24%,
+            #8eebee 12.19%,
+            #69d7db 29.82%,
+            #4fd4d8 51.94%,
+            #27abbf 90.29%);
+}
+
+.bg-purple-gradient:hover {
+    background: linear-gradient(157.81deg,
+            #7b5bec -43.27%,
+            #6f50e0 -21.24%,
+            #6c4be0 12.19%,
+            #5e3cd6 29.82%,
+            #5935d8 51.94%,
+            #4d2acc 90.29%);
+}
+
+.bg-discount-gradient {
+    background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
+}
+
+.box-shadow {
+    box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+}
+
+.sidebar {
+    -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.feature-card:hover {
+    background: var(--black-gradient);
+    box-shadow: var(--card-shadow);
+}
+
+.feedback-container .feedback-card:last-child {
+    margin-right: 0px;
+}
+
+.feedback-card {
+    background: #13111a9e;
+}
+
+.feedback-card:hover {
+    background: var(--black-gradient);
+}
+
+.bg-gradient {
+    background: linear-gradient(299deg, rgba(230,83,237,1) 15%, rgb(0 161 255) 100%);
+    filter: blur(250px);
+}
+
+.pink-gradient {
+    background: linear-gradient(90deg, #ff38fb 0%, #c149e6 100%);
+    filter: blur(300px);
+}
+
+.green-gradient {
+    background: linear-gradient(90deg, #66c011 0%, #03f855 100%);
+    filter: blur(190px);
+}
+
+.blue-gradient {
+    background: linear-gradient(90deg, #2b5cdf 0%, #0044fd 100%);
+    filter: blur(170px);
+}
+
+.white-gradient {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(177,177,177,1) 41%, rgba(255,255,255,1) 100%);
+    filter: blur(164px);
+}
+
+.page_head {
+    font-size: 65px;
+    font-weight: 700;
+}
+
+
+@keyframes vertical {
+    0% {
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.flip_vertical span {
+    animation: vertical 8s linear infinite 0s;
+    -ms-animation: vertical 8s linear infinite 0s;
+    -webkit-animation: vertical 8s linear infinite 0s;
+    position: absolute;
+    opacity: 0;
+    margin-top: -30px;
+    color: #3694ff;
+}
+
+.flip_vertical span:nth-child(2) {
+    -ms-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+.flip_vertical span:nth-child(3) {
+    -ms-animation-delay: 4s;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+.flip_vertical span:nth-child(4) {
+    -ms-animation-delay: 6s;
+    -webkit-animation-delay: 6s;
+    animation-delay: 6s;
+}
+
+@media (max-width: 1540px) {
+    .page_head {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .page_head {
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 1165px) {
+    .page_head {
+        font-size: 45px;
+    }
+    .flip_vertical {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 980px) {
+    .page_head {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page_head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .flip_vertical {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .page_head {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 360px) {
+    .page_head {
+        font-size: 30px;
+    }
+}
+
+.mouse_glow {
+    opacity: 0;
+    position: relative;
+    box-shadow: rgb(120, 85, 255) 0px 0px 150px 30px;
+}

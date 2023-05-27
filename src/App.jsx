@@ -1,0 +1,71 @@
+import { NextUIProvider, createTheme, Spacer } from '@nextui-org/react';
+import styles from "./style";
+import { Platforms, CallToAction, Footer, NavBar, Stats, Testimonials, Hero } from "./partials";
+import useDarkMode from './constants/useDarkMode';
+
+const darkTheme = createTheme({
+    type: 'dark',
+    theme: {
+        colors: {
+            gradient: 'linear-gradient(112deg, #3694ff -63.59%, #adc8e7 -20.3%, var(--nextui-colors-blue600) 70.46%);',
+            primary: '#3694ff',
+            primaryLight: '#1d68bd',
+            primaryLightHover: '#3694ff',
+            primaryLightContrast: '$white'
+        },
+        styles: {
+        }
+    }
+});
+
+const lightTheme = createTheme({
+    type: 'light',
+    theme: {
+        colors: {
+            gradient: 'linear-gradient(112deg, #3694ff -63.59%, #adc8e7 -20.3%, var(--nextui-colors-blue600) 70.46%);',
+            primary: '#3694ff',
+            primaryLight: '#1d68bd',
+            primaryLightHover: '#3694ff',
+            primaryLightContrast: '$white'
+        },
+        styles: {
+        }
+    }
+});
+
+const App = () => {
+    const [darkMode, toggleDarkMode] = useDarkMode();
+
+    return (
+        <NextUIProvider theme={darkMode ? darkTheme : lightTheme}>
+            <div className="w-full overflow-hidden">
+                <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+                    <div className={`${styles.boxWidth}`}>
+                        <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+                    </div>
+                </div>
+
+                <div className={`${styles.flexStart}`}>
+                    <div className={`${styles.boxWidth}`}>
+                        <Hero />
+                    </div>
+                </div>
+
+                <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+                    <div className={`${styles.boxWidth}`}>
+                        <Stats />
+                        <Spacer y={5} />
+                        <Testimonials />
+                        <Spacer y={5} />
+                        <CallToAction />
+                        <Spacer y={5} />
+                        <Platforms />
+                        <Footer />
+                    </div>
+                </div>
+            </div>
+        </NextUIProvider>
+    )
+};
+
+export default App;
