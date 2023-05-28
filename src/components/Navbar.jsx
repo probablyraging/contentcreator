@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Navbar, Button, Switch } from "@nextui-org/react";
 import { MoonIcon, SunIcon } from '../constants/icons';
+import { motion } from 'framer-motion';
 import { logo } from '../assets'
 
 const NavBar = ({ darkMode, toggleDarkMode }) => {
@@ -43,12 +43,17 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                     iconOn={<SunIcon filled />}
                     iconOff={<MoonIcon filled />}
                 />
-                <Navbar.Item>
-                    <Button flat auto color="primary" href="#"
-                        onClick={() => window.open('https://discord.gg/contentcreator')}>
-                        Join Now!
-                    </Button>
-                </Navbar.Item>
+                <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 11 }}
+                >
+                    <Navbar.Item>
+                        <Button flat auto color="primary" href="#"
+                            onClick={() => window.open('https://discord.gg/contentcreator')}>
+                            Join Now!
+                        </Button>
+                    </Navbar.Item>
+                </motion.div>
             </Navbar.Content>
         </Navbar>
     );

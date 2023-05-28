@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const useDarkMode = () => {
+export const useDarkMode = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
@@ -9,11 +8,10 @@ const useDarkMode = () => {
         if (storedTheme) {
             setDarkMode(storedTheme === 'true');
             updateScrollbarColors(storedTheme === 'true');
+        } else {
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setDarkMode(prefersDarkMode);
         }
-        // else {
-        //     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        //     setDarkMode(prefersDarkMode);
-        // }
     }, []);
 
     const updateScrollbarColors = (isDarkMode) => {
@@ -31,4 +29,16 @@ const useDarkMode = () => {
     return [darkMode, toggleDarkMode];
 };
 
-export default useDarkMode;
+export const fetchMemberCount = () => {
+    const [memberCount, setMemberCount] = useState(null);
+
+    useEffect(() => {
+        fetch('http://54.79.93.12/api/membercount')
+            .then(res => res.json())
+            .then(data => {
+                setMemberCount(data.message)
+            });
+    }, []);
+
+    return [memberCount, setMemberCount];
+}

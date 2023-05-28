@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Text } from "@nextui-org/react";
+import React from 'react';
+import { Text, Card } from "@nextui-org/react";
 import { percent, rocket } from "../assets";
 import { motion } from 'framer-motion';
 import styles from "../style";
@@ -17,13 +17,18 @@ const Hero = () => {
                         damping: 20,
                         delay: 0.5,
                     }}>
-                    <Text blockquote className="flex py-2 px-5">
-                        <img src={percent} alt="percent" className="w-[32px] h-[32px]" />
-                        <p className={`${styles.paragraph} ml-2 text-[18px] md:text-[14px]`}>
-                            <span className="font-semibold">Friendly</span> community.{" "}
-                            <span className="font-semibold">Great</span> resources.
-                        </p>
-                    </Text>
+
+                    <Card isHoverable variant="bordered">
+                        <Card.Body className='py-2 px-5 select-none'>
+                            <Text className='flex'>
+                                <img src={percent} alt="percent" className="w-[32px] h-[32px]" />
+                                <p className={`${styles.paragraph} ml-2 text-[18px] md:text-[14px]`}>
+                                    <span className="font-semibold">Friendly</span> community.{" "}
+                                    <span className="font-semibold">Great</span> resources.
+                                </p>
+                            </Text>
+                        </Card.Body>
+                    </Card>
                 </motion.div>
 
                 <div className="flex flex-row justify-between items-center w-full">

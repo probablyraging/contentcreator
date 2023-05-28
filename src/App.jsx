@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { NextUIProvider, createTheme, Spacer, CssBaseline, Loading } from '@nextui-org/react';
 import styles from "./style";
 import { Platforms, CallToAction, Footer, NavBar, Stats, Testimonials, Hero } from "./components";
-import useDarkMode from './constants/useDarkMode';
+import { useDarkMode } from './constants/utils';
 
 const darkTheme = createTheme({
     type: 'dark',
     theme: {
         colors: {
+            black: '#0a0a0a',
             gradient: 'linear-gradient(112deg, #3694ff -63.59%, #adc8e7 -20.3%, var(--nextui-colors-blue600) 70.46%);',
             primary: '#3694ff',
             primaryLight: '#1d68bd',
