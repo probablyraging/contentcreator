@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Text } from "@nextui-org/react";
 import { stats } from "../constants";
 import { motion } from 'framer-motion';

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Card, Text } from "@nextui-org/react";
 import { Tilt } from 'react-tilt';
 import { quotes } from "../assets";

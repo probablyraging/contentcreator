@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useState } from 'react';
 import { Navbar, Button, Switch } from "@nextui-org/react";
 import { MoonIcon, SunIcon } from '../constants/icons';
@@ -43,7 +44,8 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                     iconOff={<MoonIcon filled />}
                 />
                 <Navbar.Item>
-                    <Button flat auto color="primary" href="#">
+                    <Button flat auto color="primary" href="#"
+                        onClick={() => window.open('https://discord.gg/contentcreator')}>
                         Join Now!
                     </Button>
                 </Navbar.Item>

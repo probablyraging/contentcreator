@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { platforms } from "../constants";
 import styles from "../style";
 

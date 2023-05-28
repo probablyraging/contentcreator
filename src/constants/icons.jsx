@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export const SunIcon = ({
     fill = "#ebc934",
     filled,

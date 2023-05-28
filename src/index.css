@@ -33,7 +33,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #1d194c;
+    background-color: #2980e4;
 }
 
 .text-gradient {
@@ -159,7 +159,7 @@
 }
 
 .bg-gradient {
-    background: linear-gradient(299deg, rgba(230,83,237,1) 15%, rgb(0 161 255) 100%);
+    background: linear-gradient(299deg, rgba(230, 83, 237, 1) 15%, rgb(0 161 255) 100%);
     filter: blur(250px);
 }
 
@@ -179,7 +179,7 @@
 }
 
 .white-gradient {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(177,177,177,1) 41%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(177, 177, 177, 1) 41%, rgba(255, 255, 255, 1) 100%);
     filter: blur(164px);
 }
 
@@ -255,8 +255,13 @@
     .page_head {
         font-size: 45px;
     }
+
     .flip_vertical {
         margin-top: 20px;
+    }
+
+    #call-to-action {
+        padding: 24px;
     }
 }
 
@@ -280,6 +285,10 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+
+    #call-to-action {
+        padding: 18px;
     }
 }
 

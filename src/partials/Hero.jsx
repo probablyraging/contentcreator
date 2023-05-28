@@ -1,7 +1,8 @@
+import * as React from 'react';
 import { Text } from "@nextui-org/react";
-import styles from "../style";
 import { percent, rocket } from "../assets";
 import { motion } from 'framer-motion';
+import styles from "../style";
 
 const Hero = () => {
     return (
