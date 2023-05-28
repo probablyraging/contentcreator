@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NextUIProvider, createTheme, Spacer, CssBaseline, Loading } from '@nextui-org/react';
 import styles from "./style";
-import { Platforms, CallToAction, Footer, NavBar, Stats, Testimonials, Hero } from "./partials";
+import { Platforms, CallToAction, Footer, NavBar, Stats, Testimonials, Hero } from "./components";
 import useDarkMode from './constants/useDarkMode';
 
 const darkTheme = createTheme({
@@ -39,7 +39,7 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isRendering, setIsRendering] = useState(true);
 
-    const randomNumber = Math.floor(Math.random() * (1000 - 30 + 1)) + 30;
+    const randomNumber = Math.floor(Math.random() * (500 - 300 + 1)) + 300;
 
     useEffect(() => {
         const timeout = setTimeout(() => {

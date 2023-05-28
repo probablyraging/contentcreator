@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text } from "@nextui-org/react";
 import { feedback } from "../constants";
 import styles from "../style";
-import FeedbackCard from "../components/FeedbackCard";
+import FeedbackCard from "./partials/FeedbackCard";
 
 const Testimonials = () => (
     <section id="testimonials" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative sm:pb-0`}>

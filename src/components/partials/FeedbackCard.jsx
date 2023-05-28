@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card, Text } from "@nextui-org/react";
 import { Tilt } from 'react-tilt';
-import { quotes } from "../assets";
+import { quotes } from "../../assets";
 
 const FeedbackCard = ({ content, name, title, img }) => (
     <Tilt options={{ max: 15, scale: 1 }}>
