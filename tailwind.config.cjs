@@ -9,10 +9,14 @@ module.exports = {
                 secondary: "#1b94b5",
                 dimWhite: "rgba(255, 255, 255, 0.7)",
                 dimBlue: "rgba(9, 151, 124, 0.1)",
+                textAlt: "#3694ff"
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
             },
+            boxShadow: {
+                resourceShadow: '2px 2px 20px 0px #0000001c',
+            }
         },
         screens: {
             // xs: "480px",

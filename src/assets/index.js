@@ -14,22 +14,24 @@ import twitter from "./twitter.svg";
 import youtube from "./youtube.svg";
 import megaphone from "./megaphone.svg";
 import cardbg from "./card-bg.svg";
+import error404 from "./error_404.svg";
 
 export {
-  percent,
-  logo,
-  quotes,
-  rocket,
-  menu,
-  close,
-  people01,
-  people02,
-  people03,
-  twitter,
-  instagram,
-  tiktok,
-  twitch,
-  youtube,
-  megaphone,
-  cardbg
+    percent,
+    logo,
+    quotes,
+    rocket,
+    menu,
+    close,
+    people01,
+    people02,
+    people03,
+    twitter,
+    instagram,
+    tiktok,
+    twitch,
+    youtube,
+    megaphone,
+    cardbg,
+    error404,
 };

@@ -1,14 +1,6 @@
 import * as React from 'react';
 
-export const SunIcon = ({
-    fill = "#ebc934",
-    filled,
-    size,
-    height,
-    width,
-    label,
-    ...props
-}) => {
+export const SunIcon = ({ fill = "#ebc934", filled, size, height, width, label, ...props }) => {
     if (filled) {
         return (
             <svg
@@ -60,15 +52,7 @@ export const SunIcon = ({
     );
 };
 
-export const MoonIcon = ({
-    fill = "currentColor",
-    filled,
-    size,
-    height,
-    width,
-    label,
-    ...props
-}) => {
+export const MoonIcon = ({ fill = "currentColor", filled, size, height, width, label, ...props }) => {
     if (filled) {
         return (
             <svg
@@ -96,6 +80,55 @@ export const MoonIcon = ({
                 fill={fill}
                 d="M20.742,13.045c-0.677,0.18-1.376,0.271-2.077,0.271c-2.135,0-4.14-0.83-5.646-2.336c-2.008-2.008-2.799-4.967-2.064-7.723 c0.092-0.345-0.007-0.713-0.259-0.965C10.444,2.04,10.077,1.938,9.73,2.034C8.028,2.489,6.476,3.382,5.241,4.616 c-3.898,3.898-3.898,10.243,0,14.143c1.889,1.889,4.401,2.93,7.072,2.93c2.671,0,5.182-1.04,7.07-2.929 c1.236-1.237,2.13-2.791,2.583-4.491c0.092-0.345-0.008-0.713-0.26-0.965C21.454,13.051,21.085,12.951,20.742,13.045z M17.97,17.346c-1.511,1.511-3.52,2.343-5.656,2.343c-2.137,0-4.146-0.833-5.658-2.344c-3.118-3.119-3.118-8.195,0-11.314 c0.602-0.602,1.298-1.102,2.06-1.483c-0.222,2.885,0.814,5.772,2.89,7.848c2.068,2.069,4.927,3.12,7.848,2.891 C19.072,16.046,18.571,16.743,17.97,17.346z"
             ></path>
+        </svg>
+    );
+};
+
+export const ChevronDownIcon = ({ fill, size, width, height, ...props }) => {
+    return (
+        <svg
+            fill="none"
+            height={size || height || 24}
+            viewBox="0 0 24 24"
+            width={size || width || 24}
+            {...props}
+        >
+            <path
+                d="m19.92 8.95-6.52 6.52c-.77.77-2.03.77-2.8 0L4.08 8.95"
+                stroke={fill}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit={10}
+                strokeWidth={1.5}
+            />
+        </svg>
+    );
+};
+
+export const UserIcon = ({ fill = "currentColor", size, width, height, ...props }) => {
+    return (
+        <svg
+            fill="none"
+            height={size || height || 24}
+            viewBox="0 0 24 24"
+            width={size || width}
+            {...props}
+        >
+            <path
+                d="M18 18.86h-.76c-.8 0-1.56.31-2.12.87l-1.71 1.69c-.78.77-2.05.77-2.83 0l-1.71-1.69c-.56-.56-1.33-.87-2.12-.87H6c-1.66 0-3-1.33-3-2.97V4.98c0-1.64 1.34-2.97 3-2.97h12c1.66 0 3 1.33 3 2.97v10.91c0 1.63-1.34 2.97-3 2.97Z"
+                stroke={fill}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit={10}
+                strokeWidth={1.5}
+            />
+            <path
+                d="M12 10a2.33 2.33 0 1 0 0-4.66A2.33 2.33 0 0 0 12 10ZM16 15.66c0-1.8-1.79-3.26-4-3.26s-4 1.46-4 3.26"
+                stroke={fill}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+            />
         </svg>
     );
 };

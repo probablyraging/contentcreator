@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Card, Button, } from "@nextui-org/react";
 import { motion } from 'framer-motion';
 import { fetchMemberCount } from '../constants/utils';
@@ -8,7 +8,7 @@ const CallToAction = () => {
     const [memberCount, setMemberCount] = fetchMemberCount();
 
     return (
-        <div>
+        <>
             <motion.div
                 initial={{ y: 100 }}
                 whileInView={{ y: 0 }}
@@ -25,7 +25,7 @@ const CallToAction = () => {
                             <div className="flex-1 flex flex-col">
                                 <h2 id="test" className={`${styles.headingRes} sm:leading-10 sm:text-[20px] sm:text-center text-[#3694ff]`}>Join the Discord server today!</h2>
                                 <p className={`${styles.paragraph} max-w-[470px] mt-5 sm:text-[14px] sm:text-center font-medium`}>
-                                    There are currently <span className="font-semibold text-[#3694ff]">{memberCount}</span> content creators in our community, and <span className="font-semibold">you're missing out</span>.
+                                    There are currently <span className="font-semibold text-[#3694ff]">{memberCount}</span> content creators in our community, and you're missing out.
                                 </p>
                             </div>
                             <div className="m-auto">
@@ -44,7 +44,7 @@ const CallToAction = () => {
                     </Card.Body>
                 </Card>
             </motion.div>
-        </div>
+        </>
     );
 };
 

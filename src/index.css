@@ -183,11 +183,49 @@
     filter: blur(164px);
 }
 
+/* Breadcrumbs */
+.MuiBreadcrumbs-li {
+    margin-bottom: 2px;
+}
+
+.MuiBreadcrumbs-separator {
+    margin: 0;
+}
+
+/* Bootstrap icons */
+.bi-file-text-fill {
+    margin-right: 4px;
+}
+
+/* Resource article */
+.post-body p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.post-body ul {
+    margin-bottom: 45px;
+}
+
+.post-body li {
+    list-style-type: circle;
+}
+
 .page_head {
     font-size: 65px;
     font-weight: 700;
 }
 
+.post-body .spacer {
+    margin: 40px 0;
+    width: 100%;
+    height: 1px;
+}
+
+.post-body .footer {
+    font-size: 14px;
+    text-align: center;
+}
 
 @keyframes vertical {
     0% {

@@ -20,13 +20,13 @@ const Hero = () => {
 
                     <Card isHoverable variant="bordered">
                         <Card.Body className='py-2 px-5 select-none'>
-                            <Text className='flex'>
+                            <div className='flex'>
                                 <img src={percent} alt="percent" className="w-[32px] h-[32px]" />
                                 <p className={`${styles.paragraph} ml-2 text-[18px] md:text-[14px]`}>
                                     <span className="font-semibold">Friendly</span> community.{" "}
                                     <span className="font-semibold">Great</span> resources.
                                 </p>
-                            </Text>
+                            </div>
                         </Card.Body>
                     </Card>
                 </motion.div>
@@ -56,12 +56,12 @@ const Hero = () => {
             <div className={`flex-1 flex ${styles.flexCenter} my-0 md:my-10 relative`}>
                 <img src={rocket} alt="rocket" className="w-[100%] h-[100%] max-w-[650px] sm:max-w-[250px] relative z-[5]" />
 
-                {/* gradient start */}
+                {/* gradients */}
                 <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink-gradient sm:w-[20%] sm:top-[-16px] sm:blur-[91px]" />
                 <div className="absolute z-[0] w-[5rem] h-[12rem] green-gradient top-[10rem] right-0 sm:w-[10%] sm:h-[40%] sm:right-[137px] sm:top-[56px] sm:blur-[100px]" />
                 <div className="absolute z-[0] w-[5rem] h-[12rem] blue-gradient top-[10rem] sm:left-[66px] sm:w-[20%] sm:h-[30%] sm:top-[100px] sm:blur-[91px]" />
                 <div className="absolute z-[0] w-[14rem] h-[12rem] rounded-full white-gradient top-[28rem] sm:w-[30%] sm:h-[40%] sm:top-[290px]" />
-                {/* gradient end */}
+                {/* gradients */}
             </div>
         </section>
     );
