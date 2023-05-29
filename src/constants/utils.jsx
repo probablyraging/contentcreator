@@ -34,7 +34,7 @@ export const fetchMemberCount = () => {
     const [memberCount, setMemberCount] = useState(null);
 
     useEffect(() => {
-        fetch('http://54.79.93.12/api/membercount')
+        fetch('https://forthecontentapi.xyz/api/membercount')
             .then(res => res.json())
             .then(data => {
                 setMemberCount(data.message);
@@ -52,7 +52,7 @@ export const useFetchResources = (slug) => {
         const fetchResources = async () => {
             try {
                 if (slug) {
-                    const response = await fetch('http://54.79.93.12/api/resources', {
+                    const response = await fetch('https://forthecontentapi.xyz/api/resources', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export const useFetchResources = (slug) => {
                     }
                     setResources(data.message);
                 } else {
-                    const response = await fetch('http://54.79.93.12/api/resources', {
+                    const response = await fetch('https://forthecontentapi.xyz/api/resources', {
                         method: 'POST'
                     });
                     const data = await response.json();
