@@ -10,7 +10,7 @@ const Breadcrumb = () => {
         <div className='flex-1 flex justify-center items-start flex-col mt-7 px-16 sm:px-6 xxl:px-0'>
             <Breadcrumbs>
                 <Link to="/resources" className="flex items-center">
-                    <i class="bi bi-file-text-fill"></i>
+                    <i className="bi bi-file-text-fill"></i>
                     <Typography variant="body2">Resources</Typography>
                 </Link>
 

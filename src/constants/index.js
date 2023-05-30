@@ -4,12 +4,12 @@ export const navLinks = [
     {
         id: "home",
         title: "Home",
-        paths: ['', '/'],
+        path: "/",
     },
     {
         id: "resources",
         title: "Resources",
-        paths: ["/resources"],
+        path: "/resources",
     },
 ];
 

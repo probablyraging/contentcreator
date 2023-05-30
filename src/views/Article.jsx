@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { BgGradientsAlt, Breadcrumb, ContentWrapper, Footer, Loader } from "../components";
 import { useFetchResources } from '../constants/utils';
@@ -14,7 +15,22 @@ const Test = ({ darkMode }) => {
 
     return (
         <ContentWrapper>
+
+            <Helmet>
+                <meta name="description" content={`${resources.snippet.slice(0, 160)}...`} />
+                <meta name="twitter:title" content={`ContentCreator - ${resources.title}`} />
+                <meta name="twitter:description" content={`${resources.snippet.slice(0, 160)}...`} />
+                <meta name="twitter:image" content={resources.thumb} />
+                <meta name="keywords" content={`discord server for content creators, content creator discord server, ${resources.snippet.split(' ').join(', ')} `} />
+                <meta property="og:title" content={`ContentCreator - ${resources.title}`} />
+                <meta property="og:description" content={`${resources.snippet.slice(0, 160)}...`} />
+                <meta property="og:image" content={resources.thumb} />
+                <meta property="og:url" content={`https://creatordiscord.xyz/resources/${resources.slug}`} />
+                <title>ContentCreator - {resources.title}</title>
+            </Helmet>
+
             <Breadcrumb />
+
             <BgGradientsAlt />
 
             <section id="home" className={`relative flex flex-col sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
@@ -36,6 +52,7 @@ const Test = ({ darkMode }) => {
             </section>
 
             <Footer />
+
         </ContentWrapper>
     );
 };

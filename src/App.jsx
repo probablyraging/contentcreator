@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing, Resources, Error, Article } from './views'
 import { MainPage, NavBarWrapper, NavBar, Loader, BackToTop } from './components';
 import { darkTheme, lightTheme } from './constants/themes';
@@ -10,7 +10,7 @@ const App = () => {
     const [darkMode, toggleDarkMode] = useDarkMode();
 
     return (
-        <HashRouter>
+        <BrowserRouter>
             <NextUIProvider theme={darkMode ? darkTheme : lightTheme}>
                 <CssBaseline />
 
@@ -34,7 +34,7 @@ const App = () => {
                 </MainPage>
 
             </NextUIProvider>
-        </HashRouter>
+        </BrowserRouter>
     )
 };
 

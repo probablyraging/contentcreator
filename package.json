@@ -18,6 +18,7 @@
         "framer-motion": "^10.12.16",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-helmet": "^6.1.0",
         "react-router-dom": "^6.11.2",
         "react-router-hash-link": "^2.4.3",
         "react-tilt": "^1.0.2",

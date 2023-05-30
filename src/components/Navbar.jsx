@@ -8,7 +8,9 @@ import { logo } from '../assets';
 
 const NavBar = ({ darkMode, toggleDarkMode }) => {
     const [activeLink, setActiveLink] = useState('home');
-    const currentPath = window.location.hash.replace('#', '');
+    const currentPath = window.location.pathname;
+
+    console.log(currentPath);
 
     const handleLinkClick = (link) => {
         setActiveLink(link);
@@ -33,8 +35,9 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 {navLinks.map((item, index) => (
                     <Navbar.Link
                         key={index}
-                        isActive={item.paths.includes(currentPath)} onClick={() => handleLinkClick(item.paths[0].replace('#', ''))}>
-                        <Link to={item.paths[0].replace('#', '')} className='flex items-center min-h-full'>
+                        isActive={item.path === currentPath}
+                        onClick={() => handleLinkClick(item.path)}>
+                        <Link to={item.path} className='flex items-center min-h-full'>
                             <Text css={{ color: '$navText' }}>
                                 {item.title}
                             </Text>
