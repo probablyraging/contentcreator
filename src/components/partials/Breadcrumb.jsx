@@ -27,7 +27,7 @@ const Breadcrumb = ({ handleEditButtonClick, modalOpenHandler, modalVisible, mod
     }, []);
 
     return (
-        <div className='flex flex-row justify-between items-start mt-7 px-16 sm:px-6 xxlup:px-0 ss:justify-center'>
+        <div className={`flex flex-row justify-between items-center mt-7 mb-7 px-16 sm:px-6 xxlup:px-0 ss:justify-center`}>
             <Breadcrumbs className='ss:hidden'>
                 <Link to="/resources" className="flex items-center">
                     <i className="bi bi-file-text-fill"></i>
@@ -59,7 +59,7 @@ const Breadcrumb = ({ handleEditButtonClick, modalOpenHandler, modalVisible, mod
                 </Link>
             )}
             {hasCookie && isEditButtonVisible && currentPath !== '/resources' && (
-                <div className='flex mb-8'>
+                <div className='flex'>
                     <Button flat auto color="primary" className='ml-6' onClick={handleEditButtonClick}>
                         Edit
                     </Button>

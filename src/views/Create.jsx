@@ -58,7 +58,7 @@ const Create = ({ darkMode }) => {
         <ContentWrapper>
             <BgGradientsAlt />
 
-            <section id="home" className={`relative flex flex-col mt-8 ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
+            <section id="content" className={`relative flex flex-col mt-8 ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
                 <form onSubmit={handleSaveClick}>
                     <div className='px-20 mt-6'>
                         <Input

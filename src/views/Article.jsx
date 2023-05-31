@@ -182,7 +182,7 @@ const Article = ({ darkMode }) => {
 
             <BgGradientsAlt />
 
-            <section id="home" className={`relative flex flex-col ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
+            <section id="content" className={`relative flex flex-col ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
                 {isEditing ? (
                     <>{renderTitleEditor()}</>
                 ) : (
@@ -202,7 +202,7 @@ const Article = ({ darkMode }) => {
                 {isEditing ? (
                     <>{renderImageEditor()}</>
                 ) : (
-                    <div className='flex flex-1 flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 justify-center items-center'>
+                    <div className='flex flex-1 flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 mb-10 justify-center items-center'>
                         <img src={resources.thumb} className='max-w-[640px] ss:max-w-full rounded-xl' />
                     </div>
                 )}

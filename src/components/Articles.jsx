@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text } from "@nextui-org/react";
+import { Text, Button, Loading } from "@nextui-org/react";
 import { Link } from 'react-router-dom';
 import { BgGradients } from '../components';
 import slugify from 'slugify';
@@ -9,15 +9,33 @@ import axios from 'axios';
 const Articles = ({ darkMode }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [resources, setResources] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [resultCount, setResultCount] = useState(1);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+    const startIndex = (currentPage - 1) * 6;
+    const endIndex = startIndex + 6;
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.post('https://creatordiscord.xyz/api/resources');
+            const response = await axios.post('http://localhost/api/resources', { page: 1 });
             setResources(response.data.message);
+            setResultCount(response.data.message.length);
             setIsLoading(false);
         };
         fetchData();
     }, []);
+
+    const handleLoadMore = async () => {
+        setIsLoadingMore(true);
+        const nextPage = currentPage + 1;
+        const response = await axios.post('http://localhost/api/resources', { page: nextPage });
+        const newResources = response.data.message;
+        setResultCount(response.data.message.length);
+        setResources((prevResources) => [...prevResources, ...newResources]);
+        setCurrentPage(nextPage);
+        setIsLoadingMore(false);
+    };
 
     const transformTitleToId = (title) => {
         return slugify(title, { lower: true, strict: true });
@@ -25,7 +43,7 @@ const Articles = ({ darkMode }) => {
 
     if (isLoading) {
         return (
-            <section id="home" className={`flex flex-row sm:flex-col pt-6 pb-16 xs:pb-5`}>
+            <section id="content" className={`flex flex-row sm:flex-col pb-16 xs:pb-5`}>
                 <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
                     <BgGradients />
                     <div className='flex justify-center flex-wrap gap-10'>
@@ -66,11 +84,11 @@ const Articles = ({ darkMode }) => {
     }
 
     return (
-        <section id="home" className={`flex flex-row sm:flex-col pt-6 pb-16 xs:pb-5`}>
+        <section id="content" className={`flex flex-row sm:flex-col pb-16 xs:pb-5`}>
             <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
                 <BgGradients />
                 <div className='flex justify-center flex-wrap gap-10'>
-                    {resources.map((item, index) => (
+                    {resources.slice(0, endIndex).map((item, index) => (
                         <Link key={index} to={transformTitleToId(item.title)}>
                             <div className={`${darkMode ? 'bg-[#16181A] drop-shadow-cardShadowSmDark hover:drop-shadow-cardShadowLgDark' : 'bg-[#fff] drop-shadow-cardShadowSm hover:drop-shadow-cardShadowLg'} relative flex flex-col min-w-0 min-h-[300px] max-w-[400px] md:max-w-full md:min-h-[250px] rounded-2xl border-none hover:translate-y-[-2px] card-anim`}>
                                 <img src={item.thumb} className="h-36 object-cover rounded-2xl rounded-b-none" alt={item.title} />
@@ -91,6 +109,22 @@ const Articles = ({ darkMode }) => {
                         </Link>
                     ))}
                 </div>
+                {resultCount >= 6 && (
+                    <div className={`flex justify-center items-center w-full mt-10 px-16 sm:px-6 xxlup:px-0 ss:justify-center`}>
+                        <Button
+                            ghost
+                            disabled={isLoadingMore}
+                            className='w-[180px] h-[42px] rounded-full'
+                            onClick={handleLoadMore}
+                        >
+                            {isLoadingMore ? (
+                                <Loading type="points" color="currentColor" size="sm" />
+                            ) : (
+                                "LOAD MORE"
+                            )}
+                        </Button>
+                    </div>
+                )}
             </div>
         </section>
     );
