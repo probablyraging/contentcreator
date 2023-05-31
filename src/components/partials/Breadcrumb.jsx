@@ -31,7 +31,7 @@ const Breadcrumb = ({ hasCookie, handleEditButtonClick, modalOpenHandler, modalV
                     );
                 })}
             </Breadcrumbs>
-            {currentPath === '/resources' && (
+            {hasCookie && currentPath === '/resources' && (
                 <Link to={'/resources/create'}>
                     <Button flat auto color="primary">
                         <Text css={{ color: '$white' }}>
