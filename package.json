@@ -6,8 +6,7 @@
     "scripts": {
         "dev": "vite",
         "predeploy": "npm run build",
-        "deploy": "npm run postbuild && gh-pages -d dist",
-        "postbuild": "node build.config.js",
+        "commit": "npm run build && node deploy.config.js",
         "build": "vite build",
         "preview": "vite preview"
     },
@@ -31,9 +30,9 @@
         "@types/react-dom": "^18.0.6",
         "@vitejs/plugin-react": "^2.0.0",
         "autoprefixer": "^10.4.7",
-        "fs-extra": "^11.1.1",
         "gh-pages": "^5.0.0",
         "postcss": "^8.4.14",
+        "shelljs": "^0.8.5",
         "tailwindcss": "^3.1.6",
         "vite": "^3.0.0"
     }
