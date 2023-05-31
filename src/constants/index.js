@@ -11,6 +11,12 @@ export const navLinks = [
         title: "Resources",
         path: "/resources",
     },
+    {
+        id: "extension",
+        title: "Chrome Extension",
+        path: "https://chrome.google.com/webstore/detail/forthecontent/kbnghoajbjomkegkhiiafelmmecnajhd",
+        external: true,
+    },
 ];
 
 export const feedback = [
@@ -51,7 +57,7 @@ export const stats = [
     {
         id: "stats-3",
         title: "Useful Resources",
-        value: "14",
+        value: "8",
     },
 ];
 

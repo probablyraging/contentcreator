@@ -32,7 +32,6 @@ const App = () => {
                         <Route path="/error" element={<Error darkMode={darkMode} />} />
                         <Route path="*" element={<Error darkMode={darkMode} />} />
                     </Routes>
-
                 </MainPage>
 
             </NextUIProvider>

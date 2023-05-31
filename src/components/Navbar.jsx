@@ -31,18 +31,30 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 variant={'underline-rounded'}
                 hideIn="xs"
             >
-                {navLinks.map((item, index) => (
-                    <Navbar.Link
-                        key={index}
-                        isActive={item.path === currentPath}
-                        onClick={() => handleLinkClick(item.path)}>
-                        <Link to={item.path} className='flex items-center min-h-full'>
-                            <Text css={{ color: '$navText' }}>
-                                {item.title}
-                            </Text>
-                        </Link>
-                    </Navbar.Link>
-                ))}
+                {navLinks.map((item, index) => {
+                    if (item.external) {
+                        return (
+                            <a href={item.path} target='_blank' rel='noopener noreferrer'>
+                                <Text css={{ color: '$navText' }}>
+                                    {item.title}
+                                </Text>
+                            </a>
+                        );
+                    } else {
+                        return (
+                            <Navbar.Link
+                                key={index}
+                                isActive={item.path === currentPath}
+                                onClick={() => handleLinkClick(item.path)}>
+                                <Link to={item.path} className='flex items-center min-h-full'>
+                                    <Text css={{ color: '$navText' }}>
+                                        {item.title}
+                                    </Text>
+                                </Link>
+                            </Navbar.Link>
+                        );
+                    }
+                })}
             </Navbar.Content>
             <Navbar.Content>
                 <Switch
@@ -61,7 +73,7 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                     <Navbar.Item>
                         <Button flat auto color="primary" href="#"
                             onClick={() => window.open('https://discord.gg/contentcreator')}>
-                            Join Now!
+                            <i className="bi bi-discord mr-4 text-[20px]"></i> Join Now!
                         </Button>
                     </Navbar.Item>
                 </motion.div>
@@ -85,7 +97,7 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 <Navbar.CollapseItem>
                     <Button flat auto color="primary" href="#" className='min-w-full mt-6'
                         onClick={() => window.open('https://discord.gg/contentcreator')}>
-                        Join Now!
+                        <i className="bi bi-discord mr-4 text-[20px]"></i> Join Now!
                     </Button>
                 </Navbar.CollapseItem>
             </Navbar.Collapse>
