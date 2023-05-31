@@ -18,7 +18,7 @@ const Articles = ({ darkMode }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.post('http://localhost/api/resources', { page: 1 });
+            const response = await axios.post('https://creatordiscord.xyz/api/resources', { page: 1 });
             setResources(response.data.message);
             setResultCount(response.data.message.length);
             setIsLoading(false);
@@ -29,7 +29,7 @@ const Articles = ({ darkMode }) => {
     const handleLoadMore = async () => {
         setIsLoadingMore(true);
         const nextPage = currentPage + 1;
-        const response = await axios.post('http://localhost/api/resources', { page: nextPage });
+        const response = await axios.post('https://creatordiscord.xyz/api/resources', { page: nextPage });
         const newResources = response.data.message;
         setResultCount(response.data.message.length);
         setResources((prevResources) => [...prevResources, ...newResources]);
