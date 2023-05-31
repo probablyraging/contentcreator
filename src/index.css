@@ -197,6 +197,10 @@
     margin-right: 4px;
 }
 
+.card-anim {
+    transition: transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s;
+}
+
 /* Resource article */
 .post-body p {
     margin-top: 30px;

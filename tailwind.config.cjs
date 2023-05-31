@@ -17,7 +17,13 @@ module.exports = {
             boxShadow: {
                 resourceShadow: '2px 2px 20px 0px #0000001c',
                 lgBoxLight: '0px 0px 100px 1px #ffffff14 !important',
-                lgBoxDark: '0 0 100px 1px #00000024 !important'
+                lgBoxDark: '0 0 100px 1px #00000024 !important',
+            },
+            dropShadow: {
+                cardShadowSm: '0 12px 14px rgb(104 112 118 / 0.2)',
+                cardShadowLg: '0 25px 34px rgb(104 112 118 / 0.35)',
+                cardShadowSmDark: '0 12px 14px rgb(0 0 0 / 0.3)',
+                cardShadowLgDark: '0 12px 14px rgb(0 0 0 / 0.35)'
             }
         },
         screens: {

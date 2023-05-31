@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, Row } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import { Link } from 'react-router-dom';
 import { Loader, BgGradients } from '../components';
 import { useFetchResources } from '../constants/utils';
@@ -23,31 +23,23 @@ const Articles = ({ darkMode }) => {
                 <BgGradients />
                 <div className='flex justify-center flex-wrap gap-10'>
                     {resources.map((item, index) => (
-                        <Link key={index} to={transformTitleToId(item.title)} className='md:w-full'>
-                            <Card isHoverable isPressable className='min-h-[300px] max-w-[400px] md:max-w-full md:min-h-[250px]'>
-                                <Card.Body css={{ p: 0, flex: '0 1 auto', minHeight: '130px' }}>
-                                    <Card.Image
-                                        src={item.thumb}
-                                        objectFit="cover"
-                                        width="100%"
-                                        height={140}
-                                        alt={item.title}
-                                    />
-
-                                    <Row wrap="wrap" justify="space-between" align="center" className='p-4'>
+                        <Link key={index} to={transformTitleToId(item.title)}>
+                            <div className={`${darkMode ? 'bg-[#16181A] drop-shadow-cardShadowSmDark hover:drop-shadow-cardShadowLgDark' : 'bg-[#fff] drop-shadow-cardShadowSm hover:drop-shadow-cardShadowLg'} relative flex flex-col min-w-0 min-h-[300px] max-w-[400px] md:max-w-full md:min-h-[250px] rounded-2xl border-none hover:translate-y-[-2px] card-anim`}>
+                                <img src={item.thumb} className="h-36 object-cover rounded-2xl rounded-b-none" alt={item.title} />
+                                <div className=" p-4">
+                                    <Text>
                                         <Link to={transformTitleToId(item.title)} className='font-semibold'>
                                             {item.title}
                                         </Link>
-
-                                        <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                                            {item.snippet.slice(0, 150) + '... '}
-                                            <Link to={transformTitleToId(item.title)} className='text-[12px] font-normal'>
-                                                [read more]
-                                            </Link>
-                                        </Text>
-                                    </Row>
-                                </Card.Body>
-                            </Card>
+                                    </Text>
+                                    <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
+                                        {item.snippet.slice(0, 150) + '... '}
+                                        <Link to={transformTitleToId(item.title)} className='text-[12px] font-normal'>
+                                            [read more]
+                                        </Link>
+                                    </Text>
+                                </div>
+                            </div>
                         </Link>
                     ))}
                 </div>
