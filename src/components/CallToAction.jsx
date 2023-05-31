@@ -8,7 +8,7 @@ const CallToAction = () => {
     const [memberCount, setMemberCount] = fetchMemberCount();
 
     return (
-        <>
+        <section id="call-to-action" className={`sm:pb-0 px-16 sm:px-6 xxlup:px-0`}>
             <motion.div
                 initial={{ y: 100 }}
                 whileInView={{ y: 0 }}
@@ -44,7 +44,7 @@ const CallToAction = () => {
                     </Card.Body>
                 </Card>
             </motion.div>
-        </>
+        </section>
     );
 };
 

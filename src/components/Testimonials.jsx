@@ -5,7 +5,7 @@ import styles from "../style";
 import { FeedbackCard } from './'
 
 const Testimonials = () => (
-    <section id="testimonials" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative sm:pb-0`}>
+    <section id="testimonials" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative sm:pb-0 px-16 sm:px-6 xxlup:px-0`}>
         <div className="absolute rounded-full bg-gradient z-[0] w-[10rem] h-[66rem] rotate-[54deg] top-[3rem] right-[70rem] sm:top-[40rem] sm:right-[9rem]" />
 
         <div className="w-full flex justify-between items-center flex-row md:flex-col mb-16 sm:mb-6 relative z-[1]">

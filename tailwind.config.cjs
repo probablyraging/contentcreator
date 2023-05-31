@@ -16,25 +16,28 @@ module.exports = {
             },
             boxShadow: {
                 resourceShadow: '2px 2px 20px 0px #0000001c',
+                lgBoxLight: '0px 0px 100px 1px #ffffff14 !important',
+                lgBoxDark: '0 0 100px 1px #00000024 !important'
             }
         },
         screens: {
-            // xs: "480px",
-            // ss: "620px",
-            // sm: "768px",
-            // md: "1060px",
-            // lg: "1200px",
-            'xs': { 'max': '480px' },
-            'ss': { 'max': '640px' },
-            'sm': { 'max': '768px' },
-            'md': { 'max': '1024px' },
-            'lg': { 'max': '1280px' },
-            'xl': { 'max': '1536px' },
-            xxl: "1700px",
+            xsup: "480px",
+            ssup: "620px",
+            smup: "768px",
+            mdup: "1060px",
+            lgup: "1200px",
+            xxlup: "1700px",
+            xs: { 'max': '480px' },
+            ss: { 'max': '640px' },
+            sm: { 'max': '768px' },
+            md: { 'max': '1024px' },
+            lg: { 'max': '1280px' },
+            xl: { 'max': '1536px' },
         },
     },
     plugins: [],
     corePlugins: {
         preflight: false,
-    }
+    },
+    important: true,
 };

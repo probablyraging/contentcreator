@@ -7,7 +7,7 @@ import styles from "../style";
 const Hero = () => {
     return (
         <section id="home" className={`flex flex-row sm:flex-col pt-6 pb-16 xs:pb-5`}>
-            <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxl:px-0 sm:items-center`}>
+            <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
                 <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Text, Card, Row } from "@nextui-org/react";
 import { Link } from 'react-router-dom';
 import { Loader, BgGradients } from '../components';
@@ -19,9 +19,8 @@ const Articles = ({ darkMode }) => {
 
     return (
         <section id="home" className={`flex flex-row sm:flex-col pt-6 pb-16 xs:pb-5`}>
-            <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxl:px-0 sm:items-center`}>
+            <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
                 <BgGradients />
-
                 <div className='flex justify-center flex-wrap gap-10'>
                     {resources.map((item, index) => (
                         <Link key={index} to={transformTitleToId(item.title)} className='md:w-full'>
@@ -52,7 +51,6 @@ const Articles = ({ darkMode }) => {
                         </Link>
                     ))}
                 </div>
-                {/* )} */}
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const useDarkMode = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -34,10 +35,9 @@ export const fetchMemberCount = () => {
     const [memberCount, setMemberCount] = useState(null);
 
     useEffect(() => {
-        fetch('https://creatordiscord.xyz/api/membercount')
-            .then(res => res.json())
-            .then(data => {
-                setMemberCount(data.message);
+        axios.get('https://creatordiscord.xyz/api/membercount')
+            .then(response => {
+                setMemberCount(response.data.message);
             });
     }, []);
 
@@ -52,27 +52,17 @@ export const useFetchResources = (slug) => {
         const fetchResources = async () => {
             try {
                 if (slug) {
-                    const response = await fetch('https://creatordiscord.xyz/api/resources', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ resource: slug }),
-                    });
-                    const data = await response.json();
-                    if (data.error) {
-                        return navigate('/error');
-                    }
-                    setResources(data.message);
+                    axios.post('https://creatordiscord.xyz/api/resources', { resource: slug })
+                        .then(response => {
+                            if (response.data.error) return navigate('/error');
+                            setResources(response.data.message);
+                        });
                 } else {
-                    const response = await fetch('https://creatordiscord.xyz/api/resources', {
-                        method: 'POST'
-                    });
-                    const data = await response.json();
-                    if (data.error) {
-                        return console.log('Error fetching resources');
-                    }
-                    setResources(data.message);
+                    axios.post('https://creatordiscord.xyz/api/resources')
+                        .then(response => {
+                            if (response.data.error) return console.log('Error fetching resources');;
+                            setResources(response.data.message);
+                        });
                 }
             } catch (error) {
                 console.log('Error fetching resources:', error);

@@ -10,7 +10,7 @@ export const darkTheme = createTheme({
             primary: '#3694ff',
             primaryLight: '#1d68bd',
             primaryLightHover: '#3694ff',
-            primaryLightContrast: '$white'
+            primaryLightContrast: '$white',
         },
         styles: {
         }
@@ -26,7 +26,7 @@ export const lightTheme = createTheme({
             primary: '#3694ff',
             primaryLight: '#1d68bd',
             primaryLightHover: '#3694ff',
-            primaryLightContrast: '$white'
+            primaryLightContrast: '$white',
         },
         styles: {
         }

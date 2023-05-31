@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Resources, Error, Article } from './views'
+import { Landing, Resources, Error, Article, LogIn, Create } from './views'
 import { MainPage, NavBarWrapper, NavBar, Loader, BackToTop } from './components';
 import { darkTheme, lightTheme } from './constants/themes';
 import { useDarkMode } from './constants/utils';
@@ -25,6 +25,8 @@ const App = () => {
 
                     <Routes>
                         <Route path="/" element={<Landing darkMode={darkMode} />} />
+                        <Route path="/login" element={<LogIn darkMode={darkMode} />} />
+                        <Route path="/resources/create" element={<Create darkMode={darkMode} />} />
                         <Route path="/resources" element={<Resources darkMode={darkMode} />} />
                         <Route path="/resources/:id" element={<Article darkMode={darkMode} />} />
                         <Route path="/error" element={<Error darkMode={darkMode} />} />

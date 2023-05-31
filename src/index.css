@@ -227,6 +227,12 @@
     text-align: center;
 }
 
+/* TinyMCE */
+.tox-tinymce {
+    margin-top: 42px;
+    min-height: 960px;
+}
+
 @keyframes vertical {
     0% {
         opacity: 0;
