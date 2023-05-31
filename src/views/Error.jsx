@@ -3,15 +3,15 @@ import { Helmet } from 'react-helmet';
 import { BgGradients, ContentWrapper } from "../components";
 import { error404 } from '../assets';
 
-const Error = ({ darkMode }) => {
+const Error = () => {
     return (
         <ContentWrapper>
 
             <Helmet>
-                <meta name="twitter:title" content="ContentCreator - Error" />
-                <meta property="og:title" content="ContentCreator - Error" />
+                <meta name="twitter:title" content="Error - ContentCreator" />
+                <meta property="og:title" content="Error - ContentCreator" />
                 <meta property="og:url" content="https://creatordiscord.xyz/error" />
-                <title>ContentCreator - Error</title>
+                <title>Error - ContentCreator</title>
             </Helmet>
 
             <BgGradients />

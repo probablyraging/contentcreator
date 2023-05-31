@@ -8,10 +8,10 @@ const Resources = ({ darkMode }) => {
 
             <Helmet>
                 <meta name="keywords" content="discord server for content creators, content creator discord server, discord server for small content creators, learning, resources, help, advice, knowledge, community, discord server, content creators, discord, content creator, " />
-                <meta name="twitter:title" content="ContentCreator - Resources" />
-                <meta property="og:title" content="ContentCreator - Resources" />
+                <meta name="twitter:title" content="Resources - ContentCreator" />
+                <meta property="og:title" content="Resources - ContentCreator" />
                 <meta property="og:url" content="https://creatordiscord.xyz/resources" />
-                <title>ContentCreator - Resources</title>
+                <title>Resources - ContentCreator</title>
             </Helmet>
 
             <Breadcrumb />

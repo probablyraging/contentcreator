@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Breadcrumbs, Typography } from '@mui/material';
 import { Button, Text, Modal } from '@nextui-org/react';
+import axios from 'axios';
 
-const Breadcrumb = ({ hasCookie, handleEditButtonClick, modalOpenHandler, modalVisible, modalCloseHandler, handleDeleteButtonClick, isEditing, isEditButtonVisible }) => {
+const Breadcrumb = ({ handleEditButtonClick, modalOpenHandler, modalVisible, modalCloseHandler, handleDeleteButtonClick, isEditButtonVisible }) => {
+    const [hasCookie, setHasCookie] = useState(false);
     const location = useLocation();
     const paths = location.pathname.split('/').filter((path) => path !== '');
     const currentPath = location.pathname;
+
+    useEffect(() => {
+        try {
+            axios.post('https://creatordiscord.xyz/api/validate', { validateToken: document.cookie })
+                .then(response => {
+                    if (response.data.success) {
+                        setHasCookie(true);
+                    } else {
+                        setHasCookie(false);
+                    }
+                });
+        } catch (error) {
+            console.log(error);
+            setHasCookie(false);
+        }
+    }, []);
 
     return (
         <div className='flex flex-row justify-between items-start mt-7 px-16 sm:px-6 xxlup:px-0 ss:justify-center'>
@@ -71,7 +89,6 @@ const Breadcrumb = ({ hasCookie, handleEditButtonClick, modalOpenHandler, modalV
                     </Modal>
                 </div>
             )}
-
         </div >
     );
 };

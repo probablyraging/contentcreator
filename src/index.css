@@ -211,6 +211,10 @@
     list-style-type: circle;
 }
 
+.post-body li>p {
+    margin: 0 !important;
+}
+
 .page_head {
     font-size: 65px;
     font-weight: 700;

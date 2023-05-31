@@ -158,15 +158,15 @@ const Article = ({ darkMode }) => {
         <ContentWrapper>
             <Helmet>
                 <meta name="description" content={`${resources.snippet.slice(0, 160)}...`} />
-                <meta name="twitter:title" content={`ContentCreator - ${resources.title}`} />
+                <meta name="twitter:title" content={`${resources.title} - ContentCreator`} />
                 <meta name="twitter:description" content={`${resources.snippet.slice(0, 160)}...`} />
                 <meta name="twitter:image" content={resources.thumb} />
                 <meta name="keywords" content={`discord server for content creators, content creator discord server, ${resources.snippet.split(' ').join(', ')} `} />
-                <meta property="og:title" content={`ContentCreator - ${resources.title}`} />
+                <meta property="og:title" content={`${resources.title} ContentCreator`} />
                 <meta property="og:description" content={`${resources.snippet.slice(0, 160)}...`} />
                 <meta property="og:image" content={resources.thumb} />
                 <meta property="og:url" content={`https://creatordiscord.xyz/resources/${resources.slug}`} />
-                <title>ContentCreator - {resources.title}</title>
+                <title>{resources.title} - ContentCreator</title>
             </Helmet>
 
             <Breadcrumb
@@ -179,6 +179,7 @@ const Article = ({ darkMode }) => {
                 isEditing={isEditing}
                 isEditButtonVisible={isEditButtonVisible}
             />
+
             <BgGradientsAlt />
 
             <section id="home" className={`relative flex flex-col ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
