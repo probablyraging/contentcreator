@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Input, Button } from '@nextui-org/react';
-import { BgGradientsAlt, ContentWrapper } from '../components';
+import { Loader } from '../components';
 import axios from 'axios';
+
+const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
+const BgGradientsAlt = lazy(() => import('../components/partials/BgGradientsAlt'));
 
 const LogIn = ({ darkMode }) => {
     const [password, setPassword] = useState('');
@@ -25,32 +28,34 @@ const LogIn = ({ darkMode }) => {
     };
 
     return (
-        <ContentWrapper>
-            <BgGradientsAlt />
-            <div className='flex justify-center items-center w-full min-h-[90vh] z-0'>
-                <div className={`flex justify-center items-center min-h-fit py-12 px-6 ${darkMode ? 'bg-[#0c0c0ce4] shadow-lgBoxLight' : 'bg-[#f9f9f9] shadow-lgBoxDark'} rounded-lg z-0`}>
-                    <form
-                        className='flex flex-col gap-5 justify-center items-center'
-                        onSubmit={handleSubmit}>
-                        <Input.Password
-                            bordered
-                            labelPlaceholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        {loginFailed && (
-                            <p className='text-[#eb5f5f] text-[14px]'>Login failed. Please try again.</p>
-                        )}
-                        <Button
-                            className='max-h-[32px]'
-                            css={{ background: '#6c6c6c' }}
-                            type="submit"
-                        >
-                            Login
-                        </Button>
-                    </form>
+        <Suspense fallback={<Loader />}>
+            <ContentWrapper>
+                <BgGradientsAlt />
+                <div className='flex justify-center items-center w-full min-h-[90vh] z-0'>
+                    <div className={`flex justify-center items-center min-h-fit py-12 px-6 ${darkMode ? 'bg-[#0c0c0ce4] shadow-lgBoxLight' : 'bg-[#f9f9f9] shadow-lgBoxDark'} rounded-lg z-0`}>
+                        <form
+                            className='flex flex-col gap-5 justify-center items-center'
+                            onSubmit={handleSubmit}>
+                            <Input.Password
+                                bordered
+                                labelPlaceholder="Password"
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            {loginFailed && (
+                                <p className='text-[#eb5f5f] text-[14px]'>Login failed. Please try again.</p>
+                            )}
+                            <Button
+                                className='max-h-[32px]'
+                                css={{ background: '#6c6c6c' }}
+                                type="submit"
+                            >
+                                Login
+                            </Button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </ContentWrapper>
+            </ContentWrapper>
+        </Suspense>
     );
 };
 

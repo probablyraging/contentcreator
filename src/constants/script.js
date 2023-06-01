@@ -1,12 +1,22 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     var scrollpos = sessionStorage.getItem('scrollpos');
     if (scrollpos) {
-        setTimeout(() => {
+        if (document.readyState === "complete") {
             window.scrollTo({
                 top: scrollpos,
                 behavior: 'auto'
             });
-        }, 100);
+        } else {
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    window.scrollTo({
+                        top: scrollpos,
+                        behavior: 'auto'
+                    });
+                }, 500);
+            });
+        }
     }
 });
 

@@ -34,11 +34,14 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 {navLinks.map((item, index) => {
                     if (item.external) {
                         return (
-                            <a href={item.path} target='_blank' rel='noopener noreferrer'>
-                                <Text css={{ color: '$navText' }}>
-                                    {item.title}
-                                </Text>
-                            </a>
+                            <li key={index}>
+                                <a href={item.path} target='_blank' rel='noopener noreferrer'>
+                                    <Text css={{ color: '$navText' }}>
+                                        {item.title}
+                                    </Text>
+                                </a>
+                            </li>
+
                         );
                     } else {
                         return (
@@ -57,26 +60,28 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                 })}
             </Navbar.Content>
             <Navbar.Content>
-                <Switch
-                    id="theme-switch"
-                    checked={!darkMode}
-                    onChange={updateDarkMode}
-                    size="md"
-                    iconOn={<SunIcon filled />}
-                    iconOff={<MoonIcon filled />}
-                />
-                <motion.div
-                    className='ss:hidden'
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 11 }}
-                >
-                    <Navbar.Item>
+                <Navbar.Item>
+                    <Switch
+                        id="theme-switch"
+                        checked={!darkMode}
+                        onChange={updateDarkMode}
+                        size="md"
+                        iconOn={<SunIcon filled />}
+                        iconOff={<MoonIcon filled />}
+                    />
+                </Navbar.Item>
+                <Navbar.Item>
+                    <motion.div
+                        className='ss:hidden'
+                        whileHover={{ scale: 1.03 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 11 }}
+                    >
                         <Button flat auto color="primary" href="#"
                             onClick={() => window.open('https://discord.gg/contentcreator')}>
                             <i className="bi bi-discord mr-4 text-[20px]"></i> Join Now!
                         </Button>
-                    </Navbar.Item>
-                </motion.div>
+                    </motion.div>
+                </Navbar.Item>
             </Navbar.Content>
 
             <Navbar.Collapse>

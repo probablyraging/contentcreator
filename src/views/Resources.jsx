@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { ContentWrapper, Articles, Breadcrumb, Footer } from '../components';
+import { Loader } from '../components';
+
+const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
+const Articles = lazy(() => import('../components/Articles'));
+const Breadcrumb = lazy(() => import('../components/partials/Breadcrumb'));
+const Footer = lazy(() => import('../components/Footer'));
 
 const Resources = ({ darkMode }) => {
     return (
-        <ContentWrapper>
+        <Suspense fallback={<Loader />}>
+            <ContentWrapper>
 
-            <Helmet>
-                <title>Resources - CreatorDiscord</title>
-                <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
-                <meta name="keywords" content="discord server for content creators, content creator discord server, discord server for small content creators, learning, resources, help, advice, knowledge, community, discord server, content creators, discord, content creator, " />
-                <meta name="twitter:title" content="Resources - CreatorDiscord" />
-                <meta name="twitter:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
-                <meta name="twitter:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
-                <meta property="og:title" content="Resources - CreatorDiscord" />
-                <meta property="og:url" content="https://creatordiscord.xyz/resources" />
-                <meta property="og:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
-                <meta property="og:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
-            </Helmet>
+                <Helmet>
+                    <title>Resources - CreatorDiscord</title>
+                    <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta name="keywords" content="discord server for content creators, content creator discord server, discord server for small content creators, learning, resources, help, advice, knowledge, community, discord server, content creators, discord, content creator, " />
+                    <meta name="twitter:title" content="Resources - CreatorDiscord" />
+                    <meta name="twitter:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta name="twitter:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
+                    <meta property="og:title" content="Resources - CreatorDiscord" />
+                    <meta property="og:url" content="https://creatordiscord.xyz/resources" />
+                    <meta property="og:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta property="og:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
+                </Helmet>
 
-            <Breadcrumb />
+                <Breadcrumb />
 
-            <Articles darkMode={darkMode} />
+                <Articles darkMode={darkMode} />
 
-            <Footer />
+                <Footer />
 
-        </ContentWrapper >
+            </ContentWrapper >
+        </Suspense>
     );
 };
 

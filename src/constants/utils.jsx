@@ -75,21 +75,6 @@ export const useFetchResources = (slug) => {
     return resources;
 };
 
-export const useLoader = (delay) => {
-    const [isLoading, setIsLoading] = useState(true);
-    const randomNumber = Math.floor(Math.random() * (500 - 300 + 1)) + 300;
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setIsLoading(false);
-        }, delay ? delay : randomNumber);
-
-        return () => clearTimeout(timeout);
-    }, []);
-
-    return [isLoading, setIsLoading];
-}
-
 export const useRenderer = () => {
     const [isRendering, setIsRendering] = useState(true);
 

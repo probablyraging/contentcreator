@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { BgGradients, ContentWrapper } from "../components";
+import { Loader } from "../components";
 import { error404 } from '../assets';
+
+const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
+const BgGradients = lazy(() => import('../components/partials/BgGradients'));
 
 const Error = () => {
     return (
-        <ContentWrapper>
+        <Suspense fallback={<Loader />}>
+            <ContentWrapper>
 
-            <Helmet>
-                <meta name="twitter:title" content="404 - CreatorDiscord" />
-                <meta property="og:title" content="404 - CreatorDiscord" />
-                <meta property="og:url" content="https://creatordiscord.xyz/error" />
-                <title>404 - CreatorDiscord</title>
-            </Helmet>
+                <Helmet>
+                    <meta name="twitter:title" content="404 - CreatorDiscord" />
+                    <meta property="og:title" content="404 - CreatorDiscord" />
+                    <meta property="og:url" content="https://creatordiscord.xyz/error" />
+                    <title>404 - CreatorDiscord</title>
+                </Helmet>
 
-            <BgGradients />
+                <BgGradients />
 
-            <div className='w-full h-full flex items-center justify-center'>
-                <img src={error404} className='w-[800px]' />
-            </div>
+                <div className='w-full h-full flex items-center justify-center'>
+                    <img src={error404} className='w-[800px]' />
+                </div>
 
-        </ContentWrapper>
+            </ContentWrapper>
+        </Suspense>
     );
 };
 

@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing, Resources, Error, Article, LogIn, Create } from './views'
-import { MainPage, NavBarWrapper, NavBar, Loader, BackToTop } from './components';
+import { Loader } from './components';
 import { darkTheme, lightTheme } from './constants/themes';
 import { useDarkMode } from './constants/utils';
+
+const MainPage = lazy(() => import('./components/partials/MainPage'));
+const NavBarWrapper = lazy(() => import('./components/partials/NavBarWrapper'));
+const NavBar = lazy(() => import('./components/Navbar'));
+const BackToTop = lazy(() => import('./components/partials/BackToTop'));
 
 const App = () => {
     const [darkMode, toggleDarkMode] = useDarkMode();
@@ -14,25 +19,25 @@ const App = () => {
             <NextUIProvider theme={darkMode ? darkTheme : lightTheme}>
                 <CssBaseline />
 
-                <Loader darkMode={darkMode} />
+                <Suspense fallback={<Loader />}>
+                    <MainPage>
+                        <NavBarWrapper>
+                            <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+                        </NavBarWrapper>
 
-                <MainPage>
-                    <NavBarWrapper>
-                        <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-                    </NavBarWrapper>
+                        <BackToTop darkMode={darkMode} />
 
-                    <BackToTop darkMode={darkMode} />
-
-                    <Routes>
-                        <Route path="/" element={<Landing darkMode={darkMode} />} />
-                        <Route path="/login" element={<LogIn darkMode={darkMode} />} />
-                        <Route path="/resources/create" element={<Create darkMode={darkMode} />} />
-                        <Route path="/resources" element={<Resources darkMode={darkMode} />} />
-                        <Route path="/resources/:id" element={<Article darkMode={darkMode} />} />
-                        <Route path="/error" element={<Error darkMode={darkMode} />} />
-                        <Route path="*" element={<Error darkMode={darkMode} />} />
-                    </Routes>
-                </MainPage>
+                        <Routes>
+                            <Route path="/" element={<Landing darkMode={darkMode} />} />
+                            <Route path="/login" element={<LogIn darkMode={darkMode} />} />
+                            <Route path="/resources/create" element={<Create darkMode={darkMode} />} />
+                            <Route path="/resources" element={<Resources darkMode={darkMode} />} />
+                            <Route path="/resources/:id" element={<Article darkMode={darkMode} />} />
+                            <Route path="/error" element={<Error darkMode={darkMode} />} />
+                            <Route path="*" element={<Error darkMode={darkMode} />} />
+                        </Routes>
+                    </MainPage>
+                </Suspense>
 
             </NextUIProvider>
         </BrowserRouter>
