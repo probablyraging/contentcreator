@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /login
+Disallow: /resources/create
+
+Sitemap: https://creatordiscord.xyz/sitemap.xml

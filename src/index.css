@@ -224,6 +224,21 @@
     min-height: 960px;
 }
 
+.animate-pulse {
+    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 @keyframes vertical {
     0% {
         opacity: 0;
@@ -337,8 +352,4 @@
     .page_head {
         font-size: 30px;
     }
-}
-
-.animate-pulse {
-    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
 }
