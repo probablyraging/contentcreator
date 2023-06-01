@@ -91,7 +91,7 @@ const Articles = ({ darkMode }) => {
                     {resources.slice(0, endIndex).map((item, index) => (
                         <Link key={index} to={transformTitleToId(item.title)}>
                             <div className={`${darkMode ? 'bg-[#16181A] drop-shadow-cardShadowSmDark hover:drop-shadow-cardShadowLgDark' : 'bg-[#fff] drop-shadow-cardShadowSm hover:drop-shadow-cardShadowLg'} relative flex flex-col min-w-0 min-h-[300px] max-w-[400px] md:max-w-full md:min-h-[250px] rounded-2xl border-none hover:translate-y-[-2px] card-anim`}>
-                                <img src={item.thumb} className="h-36 object-cover rounded-2xl rounded-b-none" alt={item.title} />
+                                <img src={item.thumb} className="h-36 object-cover rounded-2xl rounded-b-none" width="960" height="540" alt={item.title} />
                                 <div className="p-4">
                                     <Text>
                                         <Link to={transformTitleToId(item.title)} className='font-semibold'>

@@ -1,5 +1,5 @@
 import percent from "./percent.svg";
-import logo from "./logo.svg";
+import logo from "./creatordiscord_rocket_logo.svg";
 import quotes from "./quotes.svg";
 import rocket from "./rocket.svg";
 import menu from "./menu.svg";
