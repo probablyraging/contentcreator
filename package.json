@@ -7,8 +7,15 @@
         "dev": "vite",
         "predeploy": "npm run build",
         "commit": "npm run build && node deploy.config.js",
-        "build": "vite build",
+        "build": "vite build && react-snap",
         "preview": "vite preview"
+    },
+    "reactSnap": {
+        "source": "dist",
+        "include": [
+            "/resources/the-importance-of-consistency-as-a-new-creator",
+            "/resources/3-steps-to-grow-your-audience-on-most-platforms"
+        ]
     },
     "dependencies": {
         "@emotion/styled": "^11.11.0",
@@ -22,6 +29,7 @@
         "react-helmet": "^6.1.0",
         "react-router-dom": "^6.11.2",
         "react-router-hash-link": "^2.4.3",
+        "react-snap": "^1.23.0",
         "react-tilt": "^1.0.2",
         "slugify": "^1.6.6"
     },

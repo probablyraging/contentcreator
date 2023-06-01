@@ -8,10 +8,10 @@ const Error = () => {
         <ContentWrapper>
 
             <Helmet>
-                <meta name="twitter:title" content="Error - ContentCreator" />
-                <meta property="og:title" content="Error - ContentCreator" />
+                <meta name="twitter:title" content="404 - CreatorDiscord" />
+                <meta property="og:title" content="404 - CreatorDiscord" />
                 <meta property="og:url" content="https://creatordiscord.xyz/error" />
-                <title>Error - ContentCreator</title>
+                <title>404 - CreatorDiscord</title>
             </Helmet>
 
             <BgGradients />

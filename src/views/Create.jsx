@@ -29,13 +29,6 @@ const Create = ({ darkMode }) => {
 
     const handleSaveClick = (e) => {
         e.preventDefault();
-        console.log(resourceTitle);
-        console.log(resourceImage);
-        console.log(resourceBody);
-        console.log(new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }));
-
-        // TODO: Going to need to create a snippet, slug, date, etc..
-
         try {
             const slug = slugify(resourceTitle, { lower: true, strict: true });
             axios.post('https://creatordiscord.xyz/api/createresource', {

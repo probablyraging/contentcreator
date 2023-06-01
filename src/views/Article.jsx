@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
-import { Button, Input, Modal, Text } from '@nextui-org/react';
+import { Button, Input } from '@nextui-org/react';
 import { BgGradientsAlt, Breadcrumb, ContentWrapper, Footer, Loader } from "../components";
 import { useFetchResources } from '../constants/utils';
 import styles from '../style';
@@ -14,6 +14,7 @@ const Article = ({ darkMode }) => {
     const resources = useFetchResources(id);
     const [resourceTitle, setResourceTitle] = useState('');
     const [resourceImage, setResourceImage] = useState('');
+    const [resourceKeywords, setResourceKeywords] = useState('');
     const [resourceBody, setEditorContent] = useState('');
     const [hasCookie, setHasCookie] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -71,13 +72,15 @@ const Article = ({ darkMode }) => {
         }
     };
 
-    const handleSaveClick = () => {
+    const handleSaveClick = (e) => {
+        e.preventDefault();
         try {
             const newSlug = slugify(resourceTitle ? resourceTitle : resources.title, { lower: true, strict: true });
             axios.post('https://creatordiscord.xyz/api/updateresource', {
                 slug: id,
                 title: resourceTitle ? resourceTitle : resources.title,
                 thumb: resourceImage ? resourceImage : resources.thumb,
+                keywords: resourceKeywords ? resourceKeywords : resources.keywords,
                 raw: resourceBody ? resourceBody : resources.raw,
                 newSlug: newSlug
             })
@@ -95,7 +98,7 @@ const Article = ({ darkMode }) => {
                 <div className='px-20'>
                     <Input
                         bordered
-                        className='lgup:w-[900px] mdup:w-[800px] smup:w-[700px] ssup:w-[600px] xsup:w-[500px] bg-white'
+                        className={`lgup:w-[900px] mdup:w-[800px] smup:w-[700px] ssup:w-[600px] xsup:w-[500px] ${darkMode ? 'bg-[#141414]' : 'bg-white'}`}
                         label='Title'
                         initialValue={resources.title}
                         onChange={(e) => setResourceTitle(e.target.value)}
@@ -112,10 +115,27 @@ const Article = ({ darkMode }) => {
                 <div className='px-20'>
                     <Input
                         bordered
-                        className='lgup:w-[900px] mdup:w-[800px] smup:w-[700px] ssup:w-[600px] xsup:w-[500px] bg-white'
+                        className={`lgup:w-[900px] mdup:w-[800px] smup:w-[700px] ssup:w-[600px] xsup:w-[500px] ${darkMode ? 'bg-[#141414]' : 'bg-white'}`}
                         label='Thumbnail'
                         initialValue={resources.thumb}
                         onChange={(e) => setResourceImage(e.target.value)}
+                    />
+                </div>
+            );
+        }
+        return null;
+    };
+
+    const renderKeywordEditor = () => {
+        if (isEditing) {
+            return (
+                <div className='px-20 mt-5'>
+                    <Input
+                        bordered
+                        className={`lgup:w-[900px] mdup:w-[800px] smup:w-[700px] ssup:w-[600px] xsup:w-[500px] ${darkMode ? 'bg-[#141414]' : 'bg-white'}`}
+                        label='Keywords'
+                        initialValue={resources.keywords}
+                        onChange={(e) => setResourceKeywords(e.target.value)}
                     />
                 </div>
             );
@@ -139,7 +159,7 @@ const Article = ({ darkMode }) => {
                         <Button auto color="cancel" onClick={handleCancelClick}>
                             Cancel
                         </Button>
-                        <Button flat auto color="primary" onClick={handleSaveClick}>
+                        <Button flat auto color="primary" type="submit">
                             Save
                         </Button>
                     </div>
@@ -157,19 +177,20 @@ const Article = ({ darkMode }) => {
     return (
         <ContentWrapper>
             <Helmet>
+                <title>{resources.title} - CreatorDiscord</title>
                 <meta name="description" content={`${resources.snippet.slice(0, 160)}...`} />
-                <meta name="twitter:title" content={`${resources.title} - ContentCreator`} />
+                <meta name="keywords" content={`${resources.keywords} `} />
+                <meta name="twitter:title" content={`${resources.title} - CreatorDiscord`} />
                 <meta name="twitter:description" content={`${resources.snippet.slice(0, 160)}...`} />
                 <meta name="twitter:image" content={resources.thumb} />
-                <meta name="keywords" content={`discord server for content creators, content creator discord server, ${resources.snippet.split(' ').join(', ')} `} />
-                <meta property="og:title" content={`${resources.title} ContentCreator`} />
+                <meta property="og:title" content={`${resources.title} CreatorDiscord`} />
+                <meta property="og:url" content={`https://creatordiscord.xyz/resources/${resources.slug}`} />
                 <meta property="og:description" content={`${resources.snippet.slice(0, 160)}...`} />
                 <meta property="og:image" content={resources.thumb} />
-                <meta property="og:url" content={`https://creatordiscord.xyz/resources/${resources.slug}`} />
-                <title>{resources.title} - ContentCreator</title>
             </Helmet>
 
             <Breadcrumb
+                darkMode={darkMode}
                 hasCookie={hasCookie}
                 handleEditButtonClick={handleEditButtonClick}
                 modalOpenHandler={modalOpenHandler}
@@ -183,38 +204,45 @@ const Article = ({ darkMode }) => {
             <BgGradientsAlt />
 
             <section id="content" className={`relative flex flex-col ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
-                {isEditing ? (
-                    <>{renderTitleEditor()}</>
-                ) : (
-                    <div className={`flex-1 ${styles.flexStart} flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 sm:items-center`}>
-                        <p id='resource-title' className='flex items-center w-full lgup:text-[64px] mdup:text-[52px] smup:text-[40px] text-[36px] lgup:leading-[70px] mdup:leading-[60px] smup:leading-[50px] leading-[40px] font-bold mt-9'>
-                            {resources.title}
-                        </p>
-                    </div>
-                )}
+                <form onSubmit={handleSaveClick}>
 
-                <div className='flex flex-row flex-wrap mb-5 lgup:px-44 mdup:px-32 smup:px-14 px-6 items-center ss:justify-center'>
-                    {!isEditing && (
-                        <div className='leading-[70px] sm:text-[14px]' dangerouslySetInnerHTML={{ __html: resources.date.toUpperCase() }}></div>
+                    {isEditing ? (
+                        <>{renderTitleEditor()}</>
+                    ) : (
+                        <div className={`flex-1 ${styles.flexStart} flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 sm:items-center`}>
+                            <p id='resource-title' className='flex items-center w-full lgup:text-[64px] mdup:text-[52px] smup:text-[40px] text-[36px] lgup:leading-[70px] mdup:leading-[60px] smup:leading-[50px] leading-[40px] font-bold mt-9'>
+                                {resources.title}
+                            </p>
+                        </div>
                     )}
-                </div>
 
-                {isEditing ? (
-                    <>{renderImageEditor()}</>
-                ) : (
-                    <div className='flex flex-1 flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 mb-10 justify-center items-center'>
-                        <img src={resources.thumb} className='max-w-[640px] ss:max-w-full rounded-xl' />
+                    <div className='flex flex-row flex-wrap mb-5 lgup:px-44 mdup:px-32 smup:px-14 px-6 items-center ss:justify-center'>
+                        {!isEditing && (
+                            <div className='leading-[70px] sm:text-[14px]' dangerouslySetInnerHTML={{ __html: resources.date.toUpperCase() }}></div>
+                        )}
                     </div>
-                )}
 
-                {isEditing ? (
-                    <>{renderEditor()}</>
-                ) : (
-                    <div className="flex-1 ${styles.flexStart} flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 justify-center items-center">
-                        <div dangerouslySetInnerHTML={{ __html: resources.raw }}></div>
-                    </div>
-                )}
+                    {isEditing ? (
+                        <>{renderImageEditor()}</>
+                    ) : (
+                        <div className='flex flex-1 flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 mb-10 justify-center items-center'>
+                            <img src={resources.thumb} className='max-w-[640px] ss:max-w-full rounded-xl' />
+                        </div>
+                    )}
 
+                    {isEditing && (
+                        <>{renderKeywordEditor()}</>
+                    )}
+
+                    {isEditing ? (
+                        <>{renderEditor()}</>
+                    ) : (
+                        <div className="flex-1 ${styles.flexStart} flex-col lgup:px-44 mdup:px-32 smup:px-14 px-6 justify-center items-center">
+                            <div dangerouslySetInnerHTML={{ __html: resources.raw }}></div>
+                        </div>
+                    )}
+
+                </form>
             </section>
 
             <Footer />
