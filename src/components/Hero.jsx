@@ -54,7 +54,7 @@ const Hero = () => {
             </div>
 
             <div className={`flex-1 flex ${styles.flexCenter} my-0 md:my-10 relative`}>
-                <img src={rocket} alt="rocket" className="w-[100%] h-[100%] max-w-[650px] sm:max-w-[250px] relative z-[5]" />
+                <img src={rocket} alt="rocket" width="650" height="650" className="w-[100%] h-[100%] max-w-[650px] sm:max-w-[250px] relative z-[5]" />
 
                 {/* gradients */}
                 <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink-gradient sm:w-[20%] sm:top-[-16px] sm:blur-[91px]" />
