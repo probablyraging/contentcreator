@@ -202,8 +202,16 @@
 }
 
 /* Resource article */
-.post-body li {
+.post-body ul {
     list-style-type: circle;
+}
+
+.post-body ol {
+    list-style-type: decimal;
+}
+
+.post-body li::marker {
+    font-weight: 700;
 }
 
 .post-body img {

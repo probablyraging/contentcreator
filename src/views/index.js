@@ -4,6 +4,7 @@ import Error from "./Error";
 import Article from "./Article";
 import LogIn from "./LogIn";
 import Create from "./Create";
+import ExtGuide from "./ExtGuide";
 
 export {
     Landing,
@@ -11,5 +12,6 @@ export {
     Error,
     Article,
     LogIn,
-    Create
+    Create,
+    ExtGuide
 };
