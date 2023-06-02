@@ -5,6 +5,7 @@ import Article from "./Article";
 import LogIn from "./LogIn";
 import Create from "./Create";
 import ExtGuide from "./ExtGuide";
+import Privacy from "./Privacy";
 
 export {
     Landing,
@@ -13,5 +14,6 @@ export {
     Article,
     LogIn,
     Create,
-    ExtGuide
+    ExtGuide,
+    Privacy
 };

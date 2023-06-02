@@ -22,42 +22,31 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
         <Navbar isBordered shouldHideOnScroll variant={'floating'} css={{ background: 'transparent' }}>
             <Navbar.Toggle className='ssup:hidden' />
             <Navbar.Brand>
-                <a href="/">
+                <Link to="/">
                     <img src={logo} alt="contentcreator" className="w-[42px] h-[42px] mr-4 sm:mr-0" />
-                </a>
+                </Link>
             </Navbar.Brand>
             <Navbar.Content
                 className="border-[#00b7f0] flex-1 ml-6"
                 variant={'underline-rounded'}
                 hideIn="xs"
             >
-                {navLinks.map((item, index) => {
-                    if (item.external) {
-                        return (
-                            <li key={index}>
-                                <a href={item.path} target='_blank' rel='noopener noreferrer'>
-                                    <Text css={{ color: '$navText' }}>
-                                        {item.title}
-                                    </Text>
-                                </a>
-                            </li>
-
-                        );
-                    } else {
-                        return (
-                            <Navbar.Link
-                                key={index}
-                                isActive={item.path === currentPath}
-                                onClick={() => handleLinkClick(item.path)}>
-                                <Link to={item.path} className='flex items-center min-h-full'>
-                                    <Text css={{ color: '$navText' }}>
-                                        {item.title}
-                                    </Text>
-                                </Link>
-                            </Navbar.Link>
-                        );
-                    }
-                })}
+                {navLinks.map((item, index) => (
+                    <Navbar.Link
+                        key={index}
+                        isExternal={item.external}
+                        target={item.external ? '_blank' : ''}
+                        isActive={item.paths.includes(currentPath)}
+                        onClick={() => handleLinkClick(item.paths[0])}>
+                        <Link
+                            to={item.paths[0]} className='flex items-center min-h-full'
+                            target={item.external ? '_blank' : ''}>
+                            <Text css={{ color: '$navText' }}>
+                                {item.title}
+                            </Text>
+                        </Link>
+                    </Navbar.Link>
+                ))}
             </Navbar.Content>
             <Navbar.Content>
                 <Navbar.Item>
@@ -93,7 +82,7 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                                 color: '$navText',
                                 minWidth: "100%",
                             }}
-                            href={item.path}
+                            href={item.paths}
                         >
                             {item.title}
                         </NavLink>

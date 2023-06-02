@@ -13,6 +13,8 @@
     "reactSnap": {
         "source": "dist",
         "include": [
+            "/login",
+            "/extguide",
             "/resources/the-importance-of-consistency-as-a-new-creator",
             "/resources/3-steps-to-grow-your-audience-on-most-platforms"
         ]

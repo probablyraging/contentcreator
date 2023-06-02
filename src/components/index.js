@@ -3,7 +3,6 @@ import NavBar from "./Navbar";
 import Platforms from "./Platforms";
 import CallToAction from "./CallToAction";
 import Stats from "./Stats";
-import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 import Articles from "./Articles";
@@ -17,6 +16,7 @@ import BackToTop from "./partials/BackToTop";
 import BgGradients from "./partials/BgGradients";
 import BgGradientsAlt from "./partials/BgGradientsAlt";
 import Breadcrumb from "./partials/Breadcrumb";
+import Footer from "./partials/Footer";
 
 export {
     NavBar,

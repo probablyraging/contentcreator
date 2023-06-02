@@ -6,7 +6,7 @@ import { Loader } from '../components';
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
 const Platforms = lazy(() => import('../components/Platforms'));
 const CallToAction = lazy(() => import('../components/CallToAction'));
-const Footer = lazy(() => import('../components/Footer'));
+const Footer = lazy(() => import('../components/partials/Footer'));
 const Stats = lazy(() => import('../components/Stats'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
 const Hero = lazy(() => import('../components/Hero'));

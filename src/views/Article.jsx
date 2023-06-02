@@ -12,7 +12,7 @@ import slugify from 'slugify';
 const BgGradientsAlt = lazy(() => import('../components/partials/BgGradientsAlt'));
 const Breadcrumb = lazy(() => import('../components/partials/Breadcrumb'));
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
-const Footer = lazy(() => import('../components/Footer'));
+const Footer = lazy(() => import('../components/partials/Footer'));
 
 const Article = ({ darkMode }) => {
     const { id } = useParams();

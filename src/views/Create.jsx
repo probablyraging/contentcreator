@@ -8,7 +8,7 @@ import slugify from 'slugify';
 
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
 const BgGradientsAlt = lazy(() => import('../components/partials/BgGradientsAlt'));
-const Footer = lazy(() => import('../components/Footer'));
+const Footer = lazy(() => import('../components/partials/Footer'));
 
 const Create = ({ darkMode }) => {
     const [resourceTitle, setResourceTitle] = useState('');

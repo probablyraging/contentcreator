@@ -4,17 +4,17 @@ export const navLinks = [
     {
         id: "home",
         title: "Home",
-        path: "/",
+        paths: ["/"]
     },
     {
         id: "resources",
         title: "Resources",
-        path: "/resources",
+        paths: ["/resources", "/resources/"]
     },
     {
         id: "extension",
         title: "Chrome Extension",
-        path: "https://chrome.google.com/webstore/detail/forthecontent/kbnghoajbjomkegkhiiafelmmecnajhd",
+        paths: ["https://chrome.google.com/webstore/detail/forthecontent/kbnghoajbjomkegkhiiafelmmecnajhd"],
         external: true,
     },
 ];

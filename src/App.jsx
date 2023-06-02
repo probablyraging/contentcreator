@@ -1,7 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Resources, Error, Article, LogIn, Create, ExtGuide } from './views'
+import { Landing, Resources, Error, Article, LogIn, Create, ExtGuide, Privacy } from './views'
 import { Loader } from './components';
 import { darkTheme, lightTheme } from './constants/themes';
 import { useDarkMode } from './constants/utils';
@@ -13,6 +13,23 @@ const BackToTop = lazy(() => import('./components/partials/BackToTop'));
 
 const App = () => {
     const [darkMode, toggleDarkMode] = useDarkMode();
+
+    useEffect(() => {
+        console.log('boop');
+        const handleRedirect = (event) => {
+            const { redirect } = JSON.parse(event.detail.body);
+
+            if (redirect) {
+                window.location.href = redirect;
+            }
+        };
+
+        document.addEventListener('redirect', handleRedirect);
+
+        return () => {
+            document.removeEventListener('redirect', handleRedirect);
+        };
+    }, []);
 
     return (
         <BrowserRouter>
@@ -31,6 +48,7 @@ const App = () => {
                             <Route path="/" element={<Landing darkMode={darkMode} />} />
                             <Route path="/login" element={<LogIn darkMode={darkMode} />} />
                             <Route path="/extguide" element={<ExtGuide darkMode={darkMode} />} />
+                            <Route path="/privacy" element={<Privacy darkMode={darkMode} />} />
                             <Route path="/resources/create" element={<Create darkMode={darkMode} />} />
                             <Route path="/resources" element={<Resources darkMode={darkMode} />} />
                             <Route path="/resources/:id" element={<Article darkMode={darkMode} />} />

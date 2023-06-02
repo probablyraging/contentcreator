@@ -6,7 +6,7 @@ import { Loader } from "../components";
 
 const BgGradientsAlt = lazy(() => import('../components/partials/BgGradientsAlt'));
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
-const Footer = lazy(() => import('../components/Footer'));
+const Footer = lazy(() => import('../components/partials/Footer'));
 
 const ExtGuide = ({ darkMode }) => {
     return (
@@ -14,15 +14,15 @@ const ExtGuide = ({ darkMode }) => {
             <ContentWrapper>
                 <Helmet>
                     <title>ForTheContent Extension Guide - CreatorDiscord</title>
-                    {/* <meta name="description" content={`${resources.snippet.slice(0, 160)}...`} />
-                    <meta name="keywords" content={`${resources.keywords} `} />
-                    <meta name="twitter:title" content={`${resources.title} - CreatorDiscord`} />
-                    <meta name="twitter:description" content={`${resources.snippet.slice(0, 160)}...`} />
-                    <meta name="twitter:image" content={resources.thumb} />
-                    <meta property="og:title" content={`${resources.title} CreatorDiscord`} />
-                    <meta property="og:url" content={`https://creatordiscord.xyz/resources/${resources.slug}`} />
-                    <meta property="og:description" content={`${resources.snippet.slice(0, 160)}...`} />
-                    <meta property="og:image" content={resources.thumb} /> */}
+                    <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta name="keywords" content="content creator, community discord, a content creator, as a content creator, be a content creator, community creators, content creator and influencer, content creator community, content creator discord, content creator discord server, discord server for content creators, content creator discord server, discord server for small content creators, discord server, content creators, discord, content creator" />
+                    <meta name="twitter:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta name="twitter:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta name="twitter:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
+                    <meta property="og:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta property="og:url" content="https://creatordiscord.xyz/" />
+                    <meta property="og:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
+                    <meta property="og:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
                 </Helmet>
 
                 <BgGradientsAlt />
@@ -41,7 +41,7 @@ const ExtGuide = ({ darkMode }) => {
 
                 <section id="content" className={`post-body relative flex flex-col sm:flex-col p-12 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
                     <h3 className='text-[#3694ff]'>Queue</h3>
-                    <ol class="extguide">
+                    <ol>
                         <li>
                             Once you've signed in, you'll be taken to the dashboard. Here, you can see the Play Queue button and a queue of videos submitted by other users
                         </li>

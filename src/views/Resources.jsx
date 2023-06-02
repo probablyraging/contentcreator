@@ -5,7 +5,7 @@ import { Loader } from '../components';
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
 const Articles = lazy(() => import('../components/Articles'));
 const Breadcrumb = lazy(() => import('../components/partials/Breadcrumb'));
-const Footer = lazy(() => import('../components/Footer'));
+const Footer = lazy(() => import('../components/partials/Footer'));
 
 const Resources = ({ darkMode }) => {
     return (
