@@ -17,7 +17,7 @@ export const useDarkMode = () => {
     }, []);
 
     const updateScrollbarColors = (isDarkMode) => {
-        const scrollbarTrackColor = isDarkMode ? '#000' : '#fff';
+        const scrollbarTrackColor = isDarkMode ? '#121212' : '#fff';
         document.documentElement.style.setProperty('--scrollbar-new-color', scrollbarTrackColor);
     };
 

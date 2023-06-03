@@ -17,7 +17,7 @@ const LogIn = ({ darkMode }) => {
         try {
             const response = await axios.post('https://creatordiscord.xyz/api/validate', { loginToken: password });
             if (response.data.cookie) {
-                document.cookie = `_session=${response.data.cookie}; max-age=86400;`;
+                document.cookie = `_session=${response.data.cookie}; path=/; max-age=86400; Secure`;
                 window.location.href = '/resources';
             } else {
                 setLoginFailed(true);
@@ -28,7 +28,7 @@ const LogIn = ({ darkMode }) => {
     };
 
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
                 <BgGradientsAlt />
                 <div className='flex justify-center items-center w-full min-h-[90vh] z-0'>

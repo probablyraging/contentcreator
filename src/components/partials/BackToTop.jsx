@@ -30,7 +30,7 @@ const BackToTopButton = ({ darkMode }) => {
                         'flex' :
                         'hidden'}
                 ${darkMode ?
-                        'bg-[#00000099] text-white border border-solid border-[#ffffff26] shadow-lg hover:bg-[#0e0e0e]' :
+                        'bg-[#121212b5] text-white border border-solid border-[#ffffff26] shadow-lg hover:bg-[#0e0e0e]' :
                         'bg-[#ffffffcc] text-black border border-solid border-[#00000026] shadow-lg hover:brightness-95'} `}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: showButton ? 1 : 0 }}

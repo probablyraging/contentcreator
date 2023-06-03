@@ -7,7 +7,7 @@ import { Loader } from '../components';
 const FeedbackCard = lazy(() => import('../components/partials/FeedbackCard'));
 
 const Testimonials = ({ darkMode }) => (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader darkMode={darkMode} />}>
         <section id="testimonials" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative sm:pb-0 px-16 sm:px-6 xxlup:px-0`}>
             <div className="absolute rounded-full bg-gradient z-[0] w-[10rem] h-[66rem] rotate-[54deg] top-[3rem] right-[70rem] sm:top-[40rem] sm:right-[9rem]" />
 

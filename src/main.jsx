@@ -1,5 +1,6 @@
 import React from 'react';
-import { hydrate, render } from "react-dom";
+import { hydrate } from "react-dom";
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 
@@ -9,5 +10,9 @@ const rootElement = document.getElementById("app");
 if (rootElement.hasChildNodes()) {
     hydrate(<App />, rootElement);
 } else {
-    render(<App />, rootElement);
+    createRoot(document.getElementById('app')).render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    );
 }

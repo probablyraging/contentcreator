@@ -52,7 +52,7 @@ const Create = ({ darkMode }) => {
     };
 
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
                 <BgGradientsAlt />
 

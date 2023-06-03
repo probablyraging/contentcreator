@@ -45,7 +45,7 @@ const Articles = ({ darkMode }) => {
         return (
             <section id="content" className={`flex flex-row sm:flex-col pb-16 xs:pb-5`}>
                 <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
-                    <BgGradients />
+                    {/* <BgGradients /> */}
                     <div className='flex justify-center flex-wrap gap-10'>
                         {Array.from({ length: 6 }, (_, index) => (
                             <div
@@ -86,7 +86,7 @@ const Articles = ({ darkMode }) => {
     return (
         <section id="content" className={`flex flex-row sm:flex-col pb-16 xs:pb-5`}>
             <div className={`flex-1 ${styles.flexStart} flex-col px-16 sm:px-6 xxlup:px-0 sm:items-center`}>
-                <BgGradients />
+                {/* <BgGradients /> */}
                 <div className='flex justify-center flex-wrap gap-10'>
                     {resources.slice(0, endIndex).map((item, index) => (
                         <Link key={index} to={transformTitleToId(item.title)}>

@@ -10,22 +10,22 @@ const Footer = lazy(() => import('../components/partials/Footer'));
 
 const Privacy = ({ darkMode }) => {
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
                 <Helmet>
                     <title>Privacy Policy - CreatorDiscord</title>
                     <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta name="keywords" content="content creator, community discord, a content creator, as a content creator, be a content creator, community creators, content creator and influencer, content creator community, content creator discord, content creator discord server, discord server for content creators, content creator discord server, discord server for small content creators, discord server, content creators, discord, content creator" />
-                    <meta name="twitter:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta name="twitter:title" content="Privacy Policy - CreatorDiscord" />
                     <meta name="twitter:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta name="twitter:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
-                    <meta property="og:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta property="og:title" content="Privacy Policy - CreatorDiscord" />
                     <meta property="og:url" content="https://creatordiscord.xyz/" />
                     <meta property="og:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta property="og:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
                 </Helmet>
 
-                <BgGradientsAlt />
+                {/* <BgGradientsAlt /> */}
 
                 <div className={`flex flex-row justify-between items-center mt-7 mb-7 px-16 sm:px-6 xxlup:px-0 ss:justify-center`}>
                     <Breadcrumbs className='ss:hidden'>

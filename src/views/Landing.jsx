@@ -12,7 +12,7 @@ const Testimonials = lazy(() => import('../components/Testimonials'));
 const Hero = lazy(() => import('../components/Hero'));
 
 const Landing = ({ darkMode }) => (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader darkMode={darkMode} />}>
         <ContentWrapper>
             <Helmet>
                 <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />

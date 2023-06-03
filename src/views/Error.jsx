@@ -6,9 +6,9 @@ import { error404 } from '../assets';
 const ContentWrapper = lazy(() => import('../components/partials/ContentWrapper'));
 const BgGradients = lazy(() => import('../components/partials/BgGradients'));
 
-const Error = () => {
+const Error = ({ darkMode }) => {
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
 
                 <Helmet>

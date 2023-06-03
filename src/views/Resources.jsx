@@ -9,7 +9,7 @@ const Footer = lazy(() => import('../components/partials/Footer'));
 
 const Resources = ({ darkMode }) => {
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
 
                 <Helmet>

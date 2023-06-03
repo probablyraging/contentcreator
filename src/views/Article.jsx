@@ -151,7 +151,7 @@ const Article = ({ darkMode }) => {
     const renderEditor = () => {
         if (isEditing) {
             return (
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={<Loader darkMode={darkMode} />}>
                     <div className='px-20'>
                         <Editor
                             apiKey='sn859udbwuko5zl0h8tp6q4dv6xil8zqzr15o6cs04pnkry0'
@@ -174,7 +174,7 @@ const Article = ({ darkMode }) => {
             );
         } else {
             return (
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={<Loader darkMode={darkMode} />}>
                     <div dangerouslySetInnerHTML={{ __html: resources.raw }}></div>
                 </Suspense>
             );
@@ -182,7 +182,7 @@ const Article = ({ darkMode }) => {
     };
 
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
                 <Helmet>
                     <title>{resources.title} - CreatorDiscord</title>
@@ -209,7 +209,7 @@ const Article = ({ darkMode }) => {
                     isEditButtonVisible={isEditButtonVisible}
                 />
 
-                <BgGradientsAlt />
+                {/* <BgGradientsAlt /> */}
 
                 <section id="content" className={`relative flex flex-col ss:text-center sm:flex-col pt-6 pb-16 xs:pb-5 ${darkMode ? 'bg-[#0c0c0c4f]' : 'bg-[#f9f9f9]'} rounded-[12px] shadow-resourceShadow`}>
                     <form onSubmit={handleSaveClick}>

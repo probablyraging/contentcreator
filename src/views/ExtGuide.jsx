@@ -10,16 +10,16 @@ const Footer = lazy(() => import('../components/partials/Footer'));
 
 const ExtGuide = ({ darkMode }) => {
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader darkMode={darkMode} />}>
             <ContentWrapper>
                 <Helmet>
                     <title>ForTheContent Extension Guide - CreatorDiscord</title>
                     <meta name="description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta name="keywords" content="content creator, community discord, a content creator, as a content creator, be a content creator, community creators, content creator and influencer, content creator community, content creator discord, content creator discord server, discord server for content creators, content creator discord server, discord server for small content creators, discord server, content creators, discord, content creator" />
-                    <meta name="twitter:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta name="twitter:title" content="ForTheContent Extension Guide - CreatorDiscord" />
                     <meta name="twitter:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta name="twitter:image" content="/contentcreator_a_discord_server_for_content_creators.png" />
-                    <meta property="og:title" content="CreatorDiscord - A Discord server for content creators" />
+                    <meta property="og:title" content="ForTheContent Extension Guide - CreatorDiscord" />
                     <meta property="og:url" content="https://creatordiscord.xyz/" />
                     <meta property="og:description" content="CreatorDiscord is a Discord server for content creators, developers, influencers, musicians, and more" />
                     <meta property="og:image" content="/contentcreator_a_discord_server_for_content_creators.png" />

@@ -16,6 +16,14 @@
     scroll-behavior: smooth;
 }
 
+html {
+    background-color: var(--nextui-colors-background);
+}
+
+body {
+    background-color: var(--nextui-colors-background);
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
