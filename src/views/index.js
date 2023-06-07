@@ -6,6 +6,7 @@ import LogIn from "./LogIn";
 import Create from "./Create";
 import ExtGuide from "./ExtGuide";
 import Privacy from "./Privacy";
+import HideYouTubeShorts from "./HideYouTubeShorts";
 
 export {
     Landing,
@@ -15,5 +16,6 @@ export {
     LogIn,
     Create,
     ExtGuide,
-    Privacy
+    Privacy,
+    HideYouTubeShorts
 };

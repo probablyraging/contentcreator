@@ -1,7 +1,7 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Resources, Error, Article, LogIn, Create, ExtGuide, Privacy } from './views'
+import { Landing, Resources, Error, Article, LogIn, Create, ExtGuide, Privacy, HideYouTubeShorts } from './views'
 import { Loader } from './components';
 import { darkTheme, lightTheme } from './constants/themes';
 import { useDarkMode } from './constants/utils';
@@ -35,6 +35,7 @@ const App = () => {
                             <Route path="/resources" element={<Resources darkMode={darkMode} />} />
                             <Route path="/resources/create" element={<Create darkMode={darkMode} />} />
                             <Route path="/resources/:id" element={<Article darkMode={darkMode} />} />
+                            <Route path="/whyamiseeingthis" element={<HideYouTubeShorts darkMode={darkMode} />} />
                             <Route path="/error" element={<Error darkMode={darkMode} />} />
                             <Route path="*" element={<Error darkMode={darkMode} />} />
                         </Routes>
