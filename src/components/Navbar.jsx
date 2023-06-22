@@ -82,7 +82,7 @@ const NavBar = ({ darkMode, toggleDarkMode }) => {
                                 color: '$navText',
                                 minWidth: "100%",
                             }}
-                            href={item.paths}
+                            href={item.paths[0]}
                         >
                             {item.title}
                         </NavLink>
