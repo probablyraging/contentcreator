@@ -6,7 +6,7 @@ import Stats from "./Stats";
 import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 import Articles from "./Articles";
-// Partions
+// Partials
 import MainPage from "./partials/MainPage";
 import NavBarWrapper from "./partials/NavBarWrapper";
 import FeedbackCard from "./partials/FeedbackCard";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronDownIcon } from '../../constants/icons';
 
 const BackToTopButton = ({ darkMode }) => {

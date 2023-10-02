@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { NextUIProvider, CssBaseline } from '@nextui-org/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing, Resources, Error, Article, LogIn, Create, ExtGuide, Privacy, HideYouTubeShorts } from './views'
