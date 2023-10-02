@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, Button, Loading } from "@nextui-org/react";
 import { Link } from 'react-router-dom';
-import { BgGradients } from '../components';
 import slugify from 'slugify';
 import styles from "../style";
 import axios from 'axios';
